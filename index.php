@@ -6,6 +6,6 @@
 </head>
 <body>
   <h1>Bienvenue sur mon portfolio !</h1>
-  <p>Tout fonctionne, tu peux commencer à personnaliser.</p>
+  <p>ouga ouga</p>
 </body>
 </html>
