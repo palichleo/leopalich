@@ -26,32 +26,17 @@ Envoyer
 
       const reader = res.body.getReader();
       const decoder = new TextDecoder('utf-8');
-      let buffer = '';
 
       while (true) {
         const { done, value } = await reader.read();
         if (done) break;
 
-        buffer += decoder.decode(value, { stream: true });
-
-        const lines = buffer.split('\n');
-        buffer = lines.pop(); // garde une éventuelle ligne incomplète
-
-        for (const line of lines) {
-          try {
-            if (!line.trim()) continue;
-            const { response } = JSON.parse(line);
-            if (response) {
-              output.textContent += response;
-              // effet machine à écrire (ajustable)
-              await new Promise(r => setTimeout(r, 5));
-            }
-          } catch (err) {
-            // ligne incomplète ou JSON invalide : ignorée
-          }
+        const chunk = decoder.decode(value, { stream: true });
+        for (const char of chunk) {
+          output.textContent += char;
+          await new Promise(r => setTimeout(r, 5)); // effet machine à écrire
         }
       }
-
     } catch (err) {
       output.textContent = 'Erreur : ' + err.message;
     } finally {
