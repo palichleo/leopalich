@@ -1,9 +1,0 @@
-RewriteEngine On
-
-# Forcer HTTPS
-RewriteCond %{HTTPS} off
-RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-
-# Rediriger leopalich.com vers www.leopalich.com
-RewriteCond %{HTTP_HOST} ^leopalich\.com$ [NC]
-RewriteRule ^(.*)$ https://www.leopalich.com/$1 [L,R=301]
