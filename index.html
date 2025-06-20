@@ -21,27 +21,20 @@ Envoyer
         body: JSON.stringify({ prompt })
       });
 
-      if (!res.body) {
-        throw new Error("Pas de réponse streamée reçue");
-      }
+      if (!res.body) throw new Error('Pas de flux reçu');
 
       const reader = res.body.getReader();
       const decoder = new TextDecoder();
-      let partial = '';
+      let buffer = '';
 
       while (true) {
         const { done, value } = await reader.read();
         if (done) break;
 
-        partial += decoder.decode(value, { stream: true });
+        const chunk = decoder.decode(value, { stream: true });
+        buffer += chunk;
 
-        try {
-          const json = JSON.parse(partial);
-          output.textContent = json.response;
-          break; // On sort car on a tout reçu
-        } catch (e) {
-          // Le JSON est probablement incomplet : on attend le reste
-        }
+        output.textContent += chunk;
       }
 
       output.classList.remove('typing');
