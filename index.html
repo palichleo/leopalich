@@ -1,0 +1,44 @@
+<!DOCTYPE html><html lang="fr"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Léo Palich, freelance expert en traitement de données statistiques et intelligence artificielle. Posez-lui vos questions directement via son assistant IA."><title>Léo Palich – Freelance IA &amp; Données</title></head> <body style="font-family: sans-serif; margin: 0; padding: 0;"> <header style="padding: 1rem; background: #111; color: white;"> <nav style="display: flex; gap: 1rem;"> <a href="/" style="color: white; text-decoration: none;">Accueil</a> <a href="/services" style="color: white; text-decoration: none;">Services</a> <a href="/projets" style="color: white; text-decoration: none;">Projets</a> <a href="/contact" style="color: white; text-decoration: none;">Contact</a> </nav> </header> <main style="min-height: 80vh;">  <section style="padding: 3rem 1rem; max-width: 800px; margin: auto; text-align: center;"> <h1 style="font-size: 2.5rem; font-weight: bold;">Léo Palich</h1> <p style="font-size: 1.25rem; margin: 1rem 0;">
+Freelance en <strong>intelligence artificielle</strong> et <strong>analyse de données statistiques</strong>.
+</p> <p style="margin-bottom: 2rem;">
+Je conçois des solutions intelligentes sur mesure : modèles prédictifs, automatisation, visualisation de données et développement IA.
+</p> </section> <section style="padding: 2rem 1rem; background: #f5f5f5;"> <div style="max-width: 800px; margin: auto;"> <h2>🤖 Discutez avec LéoBot</h2> <p style="margin-bottom: 1rem;">Posez-lui une question à mon sujet, sur mes services ou projets !</p> <form id="chat-form" style="margin-top: 1.5rem;"> <input name="prompt" type="text" placeholder="Ex : Quels sont tes services ?" required style="width: 70%; padding: 0.5rem; font-size: 1rem;"> <button type="submit" style="padding: 0.5rem 1rem; font-size: 1rem; background: black; color: white; border: none; cursor: pointer;">
+Envoyer
+</button> </form> <pre id="result" style="margin-top: 2rem; background: white; padding: 1rem; white-space: pre-wrap; min-height: 100px;"></pre> </div> </section> <script type="module">
+    const form = document.querySelector('#chat-form');
+    const output = document.querySelector('#result');
+
+    form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const prompt = form.prompt.value;
+  output.textContent = '';
+  output.classList.add('typing');
+  
+  try {
+    const res = await fetch('http://localhost:3001/ask', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ prompt })
+    });
+
+    const data = await res.json();
+    const text = data.response || 'Aucune réponse.';
+
+    // ✨ effet "machine à écrire"
+    let index = 0;
+    const interval = setInterval(() => {
+      if (index < text.length) {
+        output.textContent += text[index++];
+      } else {
+        clearInterval(interval);
+        output.classList.remove('typing');
+      }
+    }, 15); // vitesse de frappe (ms)
+
+  } catch (err) {
+    output.textContent = 'Erreur : ' + err.message;
+  }
+});
+  </script>  </main> <footer style="padding: 1rem; background: #f5f5f5; text-align: center;">
+© 2025 Léo Palich – Données & Intelligence Artificielle
+</footer> </body></html>
