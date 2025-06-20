@@ -11,9 +11,11 @@ Envoyer
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const prompt = form.prompt.value;
     output.textContent = '';
     output.classList.add('typing-cursor');
+
+    const prompt = form.prompt.value.trim();
+    if (!prompt) return;
 
     try {
       const res = await fetch('https://api.leopalich.com/ask', {
@@ -22,37 +24,30 @@ Envoyer
         body: JSON.stringify({ prompt })
       });
 
-      if (!res.body) throw new Error('Pas de flux reçu');
-
       const reader = res.body.getReader();
-      const decoder = new TextDecoder();
+      const decoder = new TextDecoder('utf-8');
       let buffer = '';
 
       while (true) {
         const { done, value } = await reader.read();
         if (done) break;
 
-        const chunk = decoder.decode(value, { stream: true });
-        buffer += chunk;
+        buffer += decoder.decode(value, { stream: true });
 
-        // Découper par ligne JSON (important car les paquets arrivent parfois incomplets)
         const lines = buffer.split('\n');
-
-        // Garder la dernière ligne en buffer si incomplète
-        buffer = lines.pop();
+        buffer = lines.pop(); // garde une éventuelle ligne incomplète
 
         for (const line of lines) {
           try {
             if (!line.trim()) continue;
-            const json = JSON.parse(line);
-            if (json.response) {
-              for (const char of json.response) {
-                output.textContent += char;
-                await new Promise(r => setTimeout(r, 8)); // ajustable
-              }
+            const { response } = JSON.parse(line);
+            if (response) {
+              output.textContent += response;
+              // effet machine à écrire (ajustable)
+              await new Promise(r => setTimeout(r, 5));
             }
           } catch (err) {
-            // JSON partiel, on ignore (buffer le complètera au tour suivant)
+            // ligne incomplète ou JSON invalide : ignorée
           }
         }
       }
