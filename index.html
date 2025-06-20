@@ -32,9 +32,21 @@ Envoyer
           if (done) break;
 
           const chunk = decoder.decode(value, { stream: true });
-          for (const char of chunk) {
-            output.textContent += char;
-            await new Promise(r => setTimeout(r, 10));
+
+          const lines = chunk.split('\n');
+          for (const line of lines) {
+            try {
+              if (line.trim() === '') continue;
+              const json = JSON.parse(line);
+              if (json.response) {
+                for (const char of json.response) {
+                  output.textContent += char;
+                  await new Promise(r => setTimeout(r, 10));
+                }
+              }
+            } catch (err) {
+              // ligne incomplète ou invalide
+            }
           }
         }
 
