@@ -1,48 +1,49 @@
-<!DOCTYPE html><html lang="fr"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Léo Palich, freelance expert en traitement de données statistiques et intelligence artificielle. Posez-lui vos questions directement via son assistant IA."><title>Léo Palich – Etudiant IA &amp; Données</title></head> <body style="font-family: sans-serif; margin: 0; padding: 0;"> <header style="padding: 1rem; background: #111; color: white;"> <nav style="display: flex; gap: 1rem;"> <a href="/" style="color: white; text-decoration: none;">Accueil</a> <a href="/services" style="color: white; text-decoration: none;">Services</a> <a href="/projets" style="color: white; text-decoration: none;">Projets</a> <a href="/contact" style="color: white; text-decoration: none;">Contact</a> </nav> </header> <main style="min-height: 80vh;">  <section style="padding: 3rem 1rem; max-width: 800px; margin: auto; text-align: center;"> <h1 style="font-size: 2.5rem; font-weight: bold;">Léo Palich</h1> <p style="font-size: 1.25rem; margin: 1rem 0;">
-Etudiant en <strong>Sciences Cognitives</strong>, dans un parcours sur l'intelligence artificielle avec un background en <strong>psychologie</strong>.
-</p> <p style="margin-bottom: 2rem;">
+<!DOCTYPE html><html lang="fr"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Léo Palich, freelance expert en traitement de données statistiques et intelligence artificielle. Posez-lui vos questions directement via son assistant IA."><title>Léo Palich – Etudiant IA &amp; Données</title><style>.typing-cursor[data-astro-cid-j7pv25f6]:after{content:"|";animation:blink .8s infinite;color:#000}@keyframes blink{0%,to{opacity:1}50%{opacity:0}}
+</style></head> <body style="font-family: sans-serif; margin: 0; padding: 0;"> <header style="padding: 1rem; background: #111; color: white;"> <nav style="display: flex; gap: 1rem;"> <a href="/" style="color: white; text-decoration: none;">Accueil</a> <a href="/services" style="color: white; text-decoration: none;">Services</a> <a href="/projets" style="color: white; text-decoration: none;">Projets</a> <a href="/contact" style="color: white; text-decoration: none;">Contact</a> </nav> </header> <main style="min-height: 80vh;">  <section style="padding: 3rem 1rem; max-width: 800px; margin: auto; text-align: center;" data-astro-cid-j7pv25f6> <h1 style="font-size: 2.5rem; font-weight: bold;" data-astro-cid-j7pv25f6>Léo Palich</h1> <p style="font-size: 1.25rem; margin: 1rem 0;" data-astro-cid-j7pv25f6>
+Etudiant en <strong data-astro-cid-j7pv25f6>Sciences Cognitives</strong>, dans un parcours sur l'intelligence artificielle avec un background en <strong data-astro-cid-j7pv25f6>psychologie</strong>.
+</p> <p style="margin-bottom: 2rem;" data-astro-cid-j7pv25f6>
 Je conçois des solutions intelligentes sur mesure : modèles prédictifs, automatisation, visualisation de données et rapport de conception sur mesure.
-</p> </section> <section style="padding: 2rem 1rem; background: #f5ebdd;"> <div style="max-width: 800px; margin: auto;"> <h2>Discutez avec moi, grâce à mon LLM</h2> <p style="margin-bottom: 1rem;">Posez-lui une question à mon sujet, sur mes compétences ou projets !</p> <form id="chat-form" style="margin-top: 1.5rem;"> <input name="prompt" type="text" placeholder="Ex : Quels sont tes services ?" required style="width: 70%; padding: 0.5rem; font-size: 1rem;"> <button type="submit" style="padding: 0.5rem 1rem; font-size: 1rem; background: black; color: white; border: none; cursor: pointer;">
+</p> </section> <section style="padding: 2rem 1rem; background: #f5ebdd;" data-astro-cid-j7pv25f6> <div style="max-width: 800px; margin: auto;" data-astro-cid-j7pv25f6> <h2 data-astro-cid-j7pv25f6>Discutez avec moi, grâce à mon LLM</h2> <p style="margin-bottom: 1rem;" data-astro-cid-j7pv25f6>Posez-lui une question à mon sujet, sur mes compétences ou projets !</p> <form id="chat-form" style="margin-top: 1.5rem;" data-astro-cid-j7pv25f6> <input name="prompt" type="text" placeholder="Ex : Quels sont tes services ?" required style="width: 70%; padding: 0.5rem; font-size: 1rem;" data-astro-cid-j7pv25f6> <button type="submit" style="padding: 0.5rem 1rem; font-size: 1rem; background: black; color: white; border: none; cursor: pointer;" data-astro-cid-j7pv25f6>
 Envoyer
-</button> </form> <pre id="result" style="margin-top: 2rem; background: white; padding: 1rem; white-space: pre-wrap; min-height: 100px;"></pre> </div> </section> <script type="module">
-  const form = document.querySelector('#chat-form');
-  const output = document.querySelector('#result');
+</button> </form> <pre id="result" class="typing-cursor" style="margin-top: 2rem; background: white; padding: 1rem; white-space: pre-wrap; min-height: 100px;" data-astro-cid-j7pv25f6></pre> </div> </section>  <script type="module">
+    const form = document.querySelector('#chat-form');
+    const output = document.querySelector('#result');
 
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const prompt = form.prompt.value;
-    output.textContent = '';
-    output.classList.add('typing');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const prompt = form.prompt.value;
+      output.textContent = '';
+      output.classList.add('typing-cursor');
 
-    try {
-      const res = await fetch('https://api.leopalich.com/ask', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ prompt })
-      });
+      try {
+        const res = await fetch('https://api.leopalich.com/ask', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ prompt })
+        });
 
-      if (!res.body) throw new Error('Pas de flux reçu');
+        if (!res.body) throw new Error('Pas de flux reçu');
 
-      const reader = res.body.getReader();
-      const decoder = new TextDecoder();
-      let buffer = '';
+        const reader = res.body.getReader();
+        const decoder = new TextDecoder();
 
-      while (true) {
-        const { done, value } = await reader.read();
-        if (done) break;
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done) break;
 
-        const chunk = decoder.decode(value, { stream: true });
-        buffer += chunk;
+          const chunk = decoder.decode(value, { stream: true });
+          for (const char of chunk) {
+            output.textContent += char;
+            await new Promise(r => setTimeout(r, 10));
+          }
+        }
 
-        output.textContent += chunk;
+      } catch (err) {
+        output.textContent = 'Erreur : ' + err.message;
+      } finally {
+        output.classList.remove('typing-cursor');
       }
-
-      output.classList.remove('typing');
-
-    } catch (err) {
-      output.textContent = 'Erreur : ' + err.message;
-    }
-  });
-</script>  </main> <footer style="padding: 1rem; background: #f5f5f5; text-align: center;">
+    });
+  </script>  </main> <footer style="padding: 1rem; background: #f5f5f5; text-align: center;">
 © 2025 Léo Palich – Données & Intelligence Artificielle
 </footer> </body></html>
