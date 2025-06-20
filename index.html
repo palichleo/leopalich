@@ -6,56 +6,63 @@ Je conçois des solutions intelligentes sur mesure : modèles prédictifs, autom
 </p> </section> <section style="padding: 2rem 1rem; background: #f5ebdd;" data-astro-cid-j7pv25f6> <div style="max-width: 800px; margin: auto;" data-astro-cid-j7pv25f6> <h2 data-astro-cid-j7pv25f6>Discutez avec moi, grâce à mon LLM</h2> <p style="margin-bottom: 1rem;" data-astro-cid-j7pv25f6>Posez-lui une question à mon sujet, sur mes compétences ou projets !</p> <form id="chat-form" style="margin-top: 1.5rem;" data-astro-cid-j7pv25f6> <input name="prompt" type="text" placeholder="Ex : Quels sont tes services ?" required style="width: 70%; padding: 0.5rem; font-size: 1rem;" data-astro-cid-j7pv25f6> <button type="submit" style="padding: 0.5rem 1rem; font-size: 1rem; background: black; color: white; border: none; cursor: pointer;" data-astro-cid-j7pv25f6>
 Envoyer
 </button> </form> <pre id="result" class="typing-cursor" style="margin-top: 2rem; background: white; padding: 1rem; white-space: pre-wrap; min-height: 100px;" data-astro-cid-j7pv25f6></pre> </div> </section>  <script type="module">
-    const form = document.querySelector('#chat-form');
-    const output = document.querySelector('#result');
+  const form = document.querySelector('#chat-form');
+  const output = document.querySelector('#result');
 
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const prompt = form.prompt.value;
-      output.textContent = '';
-      output.classList.add('typing-cursor');
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const prompt = form.prompt.value;
+    output.textContent = '';
+    output.classList.add('typing-cursor');
 
-      try {
-        const res = await fetch('https://api.leopalich.com/ask', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ prompt })
-        });
+    try {
+      const res = await fetch('https://api.leopalich.com/ask', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ prompt })
+      });
 
-        if (!res.body) throw new Error('Pas de flux reçu');
+      if (!res.body) throw new Error('Pas de flux reçu');
 
-        const reader = res.body.getReader();
-        const decoder = new TextDecoder();
+      const reader = res.body.getReader();
+      const decoder = new TextDecoder();
+      let buffer = '';
 
-        while (true) {
-          const { done, value } = await reader.read();
-          if (done) break;
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
 
-          const chunk = decoder.decode(value, { stream: true });
+        const chunk = decoder.decode(value, { stream: true });
+        buffer += chunk;
 
-          const lines = chunk.split('\n');
-          for (const line of lines) {
-            try {
-              if (line.trim() === '') continue;
-              const json = JSON.parse(line);
-              if (json.response) {
-                for (const char of json.response) {
-                  output.textContent += char;
-                  await new Promise(r => setTimeout(r, 10));
-                }
+        // Découper par ligne JSON (important car les paquets arrivent parfois incomplets)
+        const lines = buffer.split('\n');
+
+        // Garder la dernière ligne en buffer si incomplète
+        buffer = lines.pop();
+
+        for (const line of lines) {
+          try {
+            if (!line.trim()) continue;
+            const json = JSON.parse(line);
+            if (json.response) {
+              for (const char of json.response) {
+                output.textContent += char;
+                await new Promise(r => setTimeout(r, 8)); // ajustable
               }
-            } catch (err) {
-              // ligne incomplète ou invalide
             }
+          } catch (err) {
+            // JSON partiel, on ignore (buffer le complètera au tour suivant)
           }
         }
-
-      } catch (err) {
-        output.textContent = 'Erreur : ' + err.message;
-      } finally {
-        output.classList.remove('typing-cursor');
       }
-    });
-  </script>  </main> <footer style="padding: 1rem; background: #f5f5f5; text-align: center;">
+
+    } catch (err) {
+      output.textContent = 'Erreur : ' + err.message;
+    } finally {
+      output.classList.remove('typing-cursor');
+    }
+  });
+</script>  </main> <footer style="padding: 1rem; background: #f5f5f5; text-align: center;">
 © 2025 Léo Palich – Données & Intelligence Artificielle
 </footer> </body></html>
