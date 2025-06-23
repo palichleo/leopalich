@@ -1,5 +1,6 @@
-<!DOCTYPE html><html lang="fr"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Léo Palich, freelance expert en traitement de données statistiques et intelligence artificielle. Discutez avec son assistant IA."><title>Léo Palich – Étudiant IA &amp; Données</title><style>:root{--sidebar-w: 260px;--bg-dark: #111;--bg-light: #f5f5f5;--accent: #f5ebdd}*{box-sizing:border-box}body,html{margin:0;height:100%;font-family:system-ui,sans-serif}body{display:flex;height:100vh;overflow:hidden}aside{width:var(--sidebar-w);background:var(--bg-dark);color:#fff;padding:1rem .5rem;overflow-y:auto}main{flex:1;overflow-y:auto;background:var(--bg-light);display:flex;flex-direction:column}:root{--accent: #f5ebdd}.sidebar{padding:1rem .5rem}.sidebar h1{margin:.5rem 1rem 1rem;font-size:1.25rem;color:#fff}.sidebar-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.25rem}.sidebar-link{display:block;padding:.6rem 1rem;border-radius:.5rem;text-decoration:none;color:#fff;opacity:.85}.sidebar-link.is-active{background:var(--accent);color:#000;opacity:1}:root{--radius: .5rem;--dark: #000;--light: #fff}.chat-section{flex:1;padding:3rem clamp(1rem,4vw,3rem);max-width:800px;margin:auto}.chat-title{font-size:2rem;font-weight:700;text-align:center}.chat-sub{text-align:center;margin:.5rem auto 2rem;max-width:40ch}.chat-form{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap}.chat-input{flex:1;min-width:220px;padding:.7rem 1rem;font-size:1rem;border:1px solid #ccc;border-radius:var(--radius)}.chat-btn{padding:.7rem 1.2rem;font-size:1rem;background:var(--dark);color:var(--light);border:none;border-radius:var(--radius);cursor:pointer}.chat-output{margin-top:2rem;background:var(--light);padding:1rem;border-radius:var(--radius);white-space:pre-wrap;min-height:120px;overflow:auto}.typing-cursor:after{content:"|";animation:blink .8s infinite;color:var(--dark)}.typing-cursor[data-astro-cid-j7pv25f6]:after{content:"|";animation:blink .8s infinite;color:#000}@keyframes blink{0%,to{opacity:1}50%{opacity:0}}
-</style></head> <body> <aside class="sidebar"> <h1>Léo&nbsp;Palich</h1> <nav> <ul class="sidebar-list"> <li> <a href="/" class="sidebar-link is-active"> Accueil </a> </li><li> <a href="/services" class="sidebar-link "> Services </a> </li><li> <a href="/projets" class="sidebar-link "> Projets </a> </li><li> <a href="/contact" class="sidebar-link "> Contact </a> </li> </ul> </nav> </aside> <main>  <section class="chat-section" data-astro-cid-j7pv25f6> <h2 class="chat-title" data-astro-cid-j7pv25f6>Discutez avec mon LLM</h2> <p class="chat-sub" data-astro-cid-j7pv25f6>Posez une question sur mes compétences ou mes projets&nbsp;!</p> <form id="chat-form" class="chat-form" data-astro-cid-j7pv25f6> <input name="prompt" type="text" placeholder="Ex : Quels sont tes services ?" required class="chat-input" data-astro-cid-j7pv25f6> <button type="submit" class="chat-btn" data-astro-cid-j7pv25f6>Envoyer</button> </form> <pre id="result" class="chat-output typing-cursor" data-astro-cid-j7pv25f6></pre> </section>  <script type="module">
+<!DOCTYPE html><html lang="fr"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Léo Palich, étudiat en traitement de données statistiques et intelligence artificielle. Discutez avec son assistant IA."><title>Léo Palich</title><style>main{transition:opacity .2s ease}main.is-loading{opacity:.15}:root{--sidebar-w: 260px;--bg-dark: #111;--bg-light: #f5f5f5;--accent: #f5ebdd}*{box-sizing:border-box}body,html{margin:0;height:100%;font-family:system-ui,sans-serif}body{display:flex;height:100vh;overflow:hidden}aside{width:260px;width:clamp(180px,22vw,300px);background:#111;color:#fff;padding:1rem .5rem;overflow-y:auto}main{flex:1;overflow-y:auto;background:var(--bg-light);display:flex;flex-direction:column}:root{--accent: #f5ebdd}.sidebar{padding:1rem .5rem}.sidebar h1{margin:.5rem 1rem 1rem;font-size:1.25rem;color:#fff}.sidebar-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.25rem}.sidebar-link{display:block;padding:.6rem 1rem;border-radius:.5rem;text-decoration:none;color:#fff;opacity:.85}.sidebar-link.is-active{background:var(--accent);color:#000;opacity:1}
+:root{--radius: .5rem;--dark: #000;--light: #fff}.chat-section{flex:1;padding:3rem clamp(1rem,4vw,3rem);max-width:800px;margin:auto}.chat-title{font-size:2rem;font-weight:700;text-align:center}.chat-sub{text-align:center;margin:.5rem auto 2rem;max-width:40ch}.chat-form{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap}.chat-input{flex:1;min-width:220px;padding:.7rem 1rem;font-size:1rem;border:1px solid #ccc;border-radius:var(--radius)}.chat-btn{padding:.7rem 1.2rem;font-size:1rem;background:var(--dark);color:var(--light);border:none;border-radius:var(--radius);cursor:pointer}.chat-output{margin-top:2rem;background:var(--light);padding:1rem;border-radius:var(--radius);white-space:pre-wrap;min-height:120px;overflow:auto}.typing-cursor:after{content:"|";animation:blink .8s infinite;color:var(--dark)}.typing-cursor[data-astro-cid-j7pv25f6]:after{content:"|";animation:blink .8s infinite;color:#000}@keyframes blink{0%,to{opacity:1}50%{opacity:0}}
+</style></head> <body> <!-- barre latérale façon ChatGPT --> <aside class="sidebar"> <h1>Léo&nbsp;Palich</h1> <nav> <ul class="sidebar-list"> <li> <a href="/" data-nav class="sidebar-link is-active"> Accueil </a> </li><li> <a href="/projets" data-nav class="sidebar-link "> Projets </a> </li><li> <a href="/contact" data-nav class="sidebar-link "> Contact </a> </li> </ul> </nav> </aside> <main>  <section class="chat-section" data-astro-cid-j7pv25f6> <h2 class="chat-title" data-astro-cid-j7pv25f6>Discutez avec mon LLM</h2> <p class="chat-sub" data-astro-cid-j7pv25f6>Posez une question sur mes compétences ou mes projets&nbsp;! Il est alimenté par un RAG avec les informations pertinentes me concernant.</p> <form id="chat-form" class="chat-form" data-astro-cid-j7pv25f6> <input name="prompt" type="text" placeholder="Ex : Quels sont tes services ?" required class="chat-input" data-astro-cid-j7pv25f6> <button type="submit" class="chat-btn" data-astro-cid-j7pv25f6>Envoyer</button> </form> <pre id="result" class="chat-output typing-cursor" data-astro-cid-j7pv25f6></pre> </section>  <script type="module">
   const form = document.querySelector('#chat-form');
   const output = document.querySelector('#result');
   
@@ -52,6 +53,47 @@
       output.classList.remove('typing-cursor');
     }
   });
-  </script>  <footer style="text-align:center;padding:1rem 0;font-size:.875rem;">
+  </script>  <!-- components/Footer.astro --><footer>
 © 2025 Léo Palich
-</footer> </main> </body></html>
+</footer> </main> <!-- router interne SPA --> <script type="module">
+      const main = document.querySelector('main');
+      const sel  = '[data-nav]';
+
+      async function navigate(url, push = true) {
+        main.classList.add('is-loading');
+
+        const html = await fetch(url).then(r => r.text());
+        const doc  = new DOMParser().parseFromString(html, 'text/html');
+
+        main.innerHTML = doc.querySelector('main').innerHTML;
+
+        document.title = doc.title;
+        const newDesc  = doc.querySelector('meta[name="description"]')?.content;
+        if (newDesc) {
+          let cur = document.querySelector('meta[name="description"]');
+          if (!cur) {
+            cur = document.createElement('meta');
+            cur.name = 'description';
+            document.head.appendChild(cur);
+          }
+          cur.content = newDesc;
+        }
+
+        document.querySelectorAll(sel).forEach(a =>
+          a.classList.toggle('is-active', a.href === url)
+        );
+
+        if (push) history.pushState(null, '', url);
+        main.classList.remove('is-loading');
+        window.scrollTo(0, 0);
+      }
+
+      document.addEventListener('click', (e) => {
+        const a = e.target.closest(sel);
+        if (!a || a.origin !== location.origin) return;
+        e.preventDefault();
+        navigate(a.href);
+      });
+
+      window.addEventListener('popstate', () => navigate(location.href, false));
+    </script> </body> </html>
