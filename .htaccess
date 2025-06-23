@@ -1,0 +1,7 @@
+RewriteEngine On
+
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://leopalich.com%{REQUEST_URI} [L,R=301]
+
+RewriteCond %{HTTP_HOST} ^www\.leopalich\.com$ [NC]
+RewriteRule ^ https://leopalich.com%{REQUEST_URI} [L,R=301]
