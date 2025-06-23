@@ -1,48 +1,57 @@
-<!DOCTYPE html><html lang="fr"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Léo Palich, freelance expert en traitement de données statistiques et intelligence artificielle. Posez-lui vos questions directement via son assistant IA."><title>Léo Palich – Etudiant IA &amp; Données</title><style>.typing-cursor[data-astro-cid-j7pv25f6]:after{content:"|";animation:blink .8s infinite;color:#000}@keyframes blink{0%,to{opacity:1}50%{opacity:0}}
-</style></head> <body style="font-family: sans-serif; margin: 0; padding: 0;"> <header style="padding: 1rem; background: #111; color: white;"> <nav style="display: flex; gap: 1rem;"> <a href="/" style="color: white; text-decoration: none;">Accueil</a> <a href="/services" style="color: white; text-decoration: none;">Services</a> <a href="/projets" style="color: white; text-decoration: none;">Projets</a> <a href="/contact" style="color: white; text-decoration: none;">Contact</a> </nav> </header> <main style="min-height: 80vh;">  <section style="padding: 3rem 1rem; max-width: 800px; margin: auto; text-align: center;" data-astro-cid-j7pv25f6> <h1 style="font-size: 2.5rem; font-weight: bold;" data-astro-cid-j7pv25f6>Léo Palich</h1> <p style="font-size: 1.25rem; margin: 1rem 0;" data-astro-cid-j7pv25f6>
-Etudiant en <strong data-astro-cid-j7pv25f6>Sciences Cognitives</strong>, dans un parcours sur l'intelligence artificielle avec un background en <strong data-astro-cid-j7pv25f6>psychologie</strong>.
-</p> <p style="margin-bottom: 2rem;" data-astro-cid-j7pv25f6>
-Je conçois des solutions intelligentes sur mesure : modèles prédictifs, automatisation, visualisation de données et rapport de conception sur mesure.
-</p> </section> <section style="padding: 2rem 1rem; background: #f5ebdd;" data-astro-cid-j7pv25f6> <div style="max-width: 800px; margin: auto;" data-astro-cid-j7pv25f6> <h2 data-astro-cid-j7pv25f6>Discutez avec moi, grâce à mon LLM</h2> <p style="margin-bottom: 1rem;" data-astro-cid-j7pv25f6>Posez-lui une question à mon sujet, sur mes compétences ou projets !</p> <form id="chat-form" style="margin-top: 1.5rem;" data-astro-cid-j7pv25f6> <input name="prompt" type="text" placeholder="Ex : Quels sont tes services ?" required style="width: 70%; padding: 0.5rem; font-size: 1rem;" data-astro-cid-j7pv25f6> <button type="submit" style="padding: 0.5rem 1rem; font-size: 1rem; background: black; color: white; border: none; cursor: pointer;" data-astro-cid-j7pv25f6>
-Envoyer
-</button> </form> <pre id="result" class="typing-cursor" style="margin-top: 2rem; background: white; padding: 1rem; white-space: pre-wrap; min-height: 100px;" data-astro-cid-j7pv25f6></pre> </div> </section>  <script type="module">
+<!DOCTYPE html><html lang="fr"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Léo Palich, freelance expert en traitement de données statistiques et intelligence artificielle. Discutez avec son assistant IA."><title>Léo Palich – Étudiant IA &amp; Données</title><style>:root{--sidebar-w: 260px;--bg-dark: #111;--bg-light: #f5f5f5;--accent: #f5ebdd}*{box-sizing:border-box}body,html{margin:0;height:100%;font-family:system-ui,sans-serif}body{display:flex;height:100vh;overflow:hidden}aside{width:var(--sidebar-w);background:var(--bg-dark);color:#fff;padding:1rem .5rem;overflow-y:auto}main{flex:1;overflow-y:auto;background:var(--bg-light);display:flex;flex-direction:column}:root{--accent: #f5ebdd}.sidebar{padding:1rem .5rem}.sidebar h1{margin:.5rem 1rem 1rem;font-size:1.25rem;color:#fff}.sidebar-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.25rem}.sidebar-link{display:block;padding:.6rem 1rem;border-radius:.5rem;text-decoration:none;color:#fff;opacity:.85}.sidebar-link.is-active{background:var(--accent);color:#000;opacity:1}:root{--radius: .5rem;--dark: #000;--light: #fff}.chat-section{flex:1;padding:3rem clamp(1rem,4vw,3rem);max-width:800px;margin:auto}.chat-title{font-size:2rem;font-weight:700;text-align:center}.chat-sub{text-align:center;margin:.5rem auto 2rem;max-width:40ch}.chat-form{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap}.chat-input{flex:1;min-width:220px;padding:.7rem 1rem;font-size:1rem;border:1px solid #ccc;border-radius:var(--radius)}.chat-btn{padding:.7rem 1.2rem;font-size:1rem;background:var(--dark);color:var(--light);border:none;border-radius:var(--radius);cursor:pointer}.chat-output{margin-top:2rem;background:var(--light);padding:1rem;border-radius:var(--radius);white-space:pre-wrap;min-height:120px;overflow:auto}.typing-cursor:after{content:"|";animation:blink .8s infinite;color:var(--dark)}.typing-cursor[data-astro-cid-j7pv25f6]:after{content:"|";animation:blink .8s infinite;color:#000}@keyframes blink{0%,to{opacity:1}50%{opacity:0}}
+</style></head> <body> <aside class="sidebar"> <h1>Léo&nbsp;Palich</h1> <nav> <ul class="sidebar-list"> <li> <a href="/" class="sidebar-link is-active"> Accueil </a> </li><li> <a href="/services" class="sidebar-link "> Services </a> </li><li> <a href="/projets" class="sidebar-link "> Projets </a> </li><li> <a href="/contact" class="sidebar-link "> Contact </a> </li> </ul> </nav> </aside> <main>  <section class="chat-section" data-astro-cid-j7pv25f6> <h2 class="chat-title" data-astro-cid-j7pv25f6>Discutez avec mon LLM</h2> <p class="chat-sub" data-astro-cid-j7pv25f6>Posez une question sur mes compétences ou mes projets&nbsp;!</p> <form id="chat-form" class="chat-form" data-astro-cid-j7pv25f6> <input name="prompt" type="text" placeholder="Ex : Quels sont tes services ?" required class="chat-input" data-astro-cid-j7pv25f6> <button type="submit" class="chat-btn" data-astro-cid-j7pv25f6>Envoyer</button> </form> <pre id="result" class="chat-output typing-cursor" data-astro-cid-j7pv25f6></pre> </section>  <script type="module">
   const form = document.querySelector('#chat-form');
   const output = document.querySelector('#result');
-
+  
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     output.textContent = '';
     output.classList.add('typing-cursor');
-
+    
+    const submitBtn = form.querySelector('button');
+    submitBtn.disabled = true;
+    
     const prompt = form.prompt.value.trim();
     if (!prompt) return;
-
+  
     try {
       const res = await fetch('https://api.leopalich.com/ask', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ prompt })
       });
-
-      const reader = res.body.getReader();
-      const decoder = new TextDecoder('utf-8');
-
-      while (true) {
-        const { done, value } = await reader.read();
-        if (done) break;
-
-        const chunk = decoder.decode(value, { stream: true });
-        for (const char of chunk) {
-          output.textContent += char;
-          await new Promise(r => setTimeout(r, 5)); // effet machine à écrire
-        }
+  
+      if (!res.ok) {
+        throw new Error(`Erreur ${res.status}: ${await res.text()}`);
       }
+  
+      const reader = res.body.getReader();
+      const decoder = new TextDecoder();
+      let responseComplete = false;
+  
+      while (!responseComplete) {
+        const { done, value } = await reader.read();
+        
+        if (done) {
+          responseComplete = true;
+          break;
+        }
+        
+        const chunk = decoder.decode(value, { stream: true });
+        output.textContent += chunk;
+        
+        // Scroll automatique
+        output.scrollTop = output.scrollHeight;
+      }
+      
     } catch (err) {
-      output.textContent = 'Erreur : ' + err.message;
+      console.error(err);
+      output.textContent = 'Erreur : ' + (err.message || 'Problème de connexion');
     } finally {
+      submitBtn.disabled = false;
       output.classList.remove('typing-cursor');
     }
   });
-</script>  </main> <footer style="padding: 1rem; background: #f5f5f5; text-align: center;">
-© 2025 Léo Palich – Données & Intelligence Artificielle
-</footer> </body></html>
+  </script>  <footer style="text-align:center;padding:1rem 0;font-size:.875rem;">
+© 2025 Léo Palich
+</footer> </main> </body></html>
