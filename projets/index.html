@@ -1,0 +1,45 @@
+<!DOCTYPE html><html lang="fr"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Etudiant IA &#38; Données"><title>Projets – Léo Palich</title><style>main{transition:opacity .2s ease}main.is-loading{opacity:.15}:root{--sidebar-w: 260px;--bg-dark: #111;--bg-light: #f5f5f5;--accent: #f5ebdd}*{box-sizing:border-box}body,html{margin:0;height:100%;font-family:system-ui,sans-serif}body{display:flex;height:100vh;overflow:hidden}aside{width:260px;width:clamp(180px,22vw,300px);background:#111;color:#fff;padding:1rem .5rem;overflow-y:auto}main{flex:1;overflow-y:auto;background:var(--bg-light);display:flex;flex-direction:column}:root{--accent: #f5ebdd}.sidebar{padding:1rem .5rem}.sidebar h1{margin:.5rem 1rem 1rem;font-size:1.25rem;color:#fff}.sidebar-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.25rem}.sidebar-link{display:block;padding:.6rem 1rem;border-radius:.5rem;text-decoration:none;color:#fff;opacity:.85}.sidebar-link.is-active{background:var(--accent);color:#000;opacity:1}
+</style></head> <body> <!-- barre latérale façon ChatGPT --> <aside class="sidebar"> <h1>Léo&nbsp;Palich</h1> <nav> <ul class="sidebar-list"> <li> <a href="/" data-nav class="sidebar-link "> Accueil </a> </li><li> <a href="/projets" data-nav class="sidebar-link "> Projets </a> </li><li> <a href="/contact" data-nav class="sidebar-link "> Contact </a> </li> </ul> </nav> </aside> <main>  <!-- components/Footer.astro --><footer>
+© 2025 Léo Palich
+</footer> </main> <!-- router interne SPA --> <script type="module">
+      const main = document.querySelector('main');
+      const sel  = '[data-nav]';
+
+      async function navigate(url, push = true) {
+        main.classList.add('is-loading');
+
+        const html = await fetch(url).then(r => r.text());
+        const doc  = new DOMParser().parseFromString(html, 'text/html');
+
+        main.innerHTML = doc.querySelector('main').innerHTML;
+
+        document.title = doc.title;
+        const newDesc  = doc.querySelector('meta[name="description"]')?.content;
+        if (newDesc) {
+          let cur = document.querySelector('meta[name="description"]');
+          if (!cur) {
+            cur = document.createElement('meta');
+            cur.name = 'description';
+            document.head.appendChild(cur);
+          }
+          cur.content = newDesc;
+        }
+
+        document.querySelectorAll(sel).forEach(a =>
+          a.classList.toggle('is-active', a.href === url)
+        );
+
+        if (push) history.pushState(null, '', url);
+        main.classList.remove('is-loading');
+        window.scrollTo(0, 0);
+      }
+
+      document.addEventListener('click', (e) => {
+        const a = e.target.closest(sel);
+        if (!a || a.origin !== location.origin) return;
+        e.preventDefault();
+        navigate(a.href);
+      });
+
+      window.addEventListener('popstate', () => navigate(location.href, false));
+    </script> </body> </html>
