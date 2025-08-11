@@ -1,11 +1,30 @@
-<!DOCTYPE html><html lang="fr"> <head><meta charset="utf-8"><title>Contact – Léo Palich</title><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Portfolio de Léo Palich, étudiant en sciences cognitives, parcours Intelligence Artificielle Centrée Humain"><link rel="canonical" href="https://leopalich.com/"><link rel="stylesheet" href="/_astro/contact.B_57mOOF.css"></head> <body> <div class="page-wrapper"> <!-- Barre horizontale --> <!-- Barre horizontale collée en haut --><header class="topbar"> <nav class="topbar-nav"> <!-- Nom / logo --> <h1 class="site-name"> <a href="/" class="site-link" data-nav>Léo&nbsp;Palich</a> </h1> <!-- Bouton burger (mobile) --> <button id="menu-toggle" class="burger" aria-label="Menu" aria-expanded="false"> <span class="bar"></span><span class="bar"></span><span class="bar"></span> </button> <!-- Liens de navigation --> <ul class="menu-list" id="menu-list"> <li> <a href="/" data-nav class="menu-link ">Accueil</a> </li><li> <a href="/projets" data-nav class="menu-link ">Projets</a> </li><li> <a href="/contact" data-nav class="menu-link ">Contact</a> </li> </ul> </nav> <!-- 🪄 Toggle mobile --> <script>
+<!DOCTYPE html><html lang="fr"> <head><meta charset="utf-8"><title>Contact – Léo Palich</title><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Portfolio de Léo Palich, étudiant en sciences cognitives, parcours Intelligence Artificielle Centrée Humain"><link rel="canonical" href="https://leopalich.com/"><link rel="stylesheet" href="/_astro/contact.Dar3gDZZ.css"></head> <body> <div class="page-wrapper"> <!-- Barre horizontale --> <!-- Barre horizontale collée en haut --><header class="topbar"> <nav class="topbar-nav"> <!-- Nom / logo --> <h1 class="site-name"> <svg width="202.000000pt" height="246.000000pt" viewBox="0 0 202.000000 246.000000" preserveAspectRatio="xMidYMid meet" class="signature">
+
+<g transform="translate(0.000000,246.000000) scale(0.100000,-0.100000)" fill="#FFFF" stroke="none">
+<path d="M153 2404 c-3 -10 0 -22 8 -28 8 -6 45 -58 83 -116 107 -162 194
+-276 293 -380 l89 -95 17 -145 c9 -79 15 -145 13 -147 -1 -2 -38 28 -82 65
+-171 148 -348 270 -427 294 -58 17 -91 2 -95 -44 -4 -49 13 -86 127 -272 54
+-89 140 -232 192 -320 160 -274 287 -437 349 -451 40 -9 83 9 101 42 18 34 15
+193 -5 318 -8 50 -13 91 -12 92 2 2 36 -32 76 -75 41 -42 214 -219 384 -392
+171 -173 327 -335 346 -359 43 -53 92 -111 145 -171 23 -25 65 -74 95 -110 63
+-74 69 -80 92 -80 37 0 47 69 15 102 -7 7 -73 85 -147 173 -176 210 -366 420
+-476 525 -49 46 -195 189 -325 317 l-237 233 -21 143 c-12 78 -21 146 -21 150
+0 5 28 -16 63 -45 180 -156 285 -206 364 -173 68 29 68 107 -2 249 -83 170
+-218 313 -330 351 -92 31 -152 -4 -177 -104 l-14 -54 -65 74 c-70 79 -136 166
+-238 317 -35 51 -75 101 -89 112 -30 25 -80 26 -89 4z m673 -409 c49 -20 147
+-117 200 -196 71 -108 121 -230 107 -265 -19 -50 -197 62 -357 224 l-58 60 3
+79 c5 112 26 131 105 98z m-611 -249 c96 -64 269 -212 384 -329 l84 -85 23
+-149 c13 -81 24 -188 24 -237 l0 -90 -36 35 c-54 52 -171 210 -254 344 -40 66
+-112 181 -158 255 -47 74 -105 169 -129 210 -69 119 -58 127 62 46z" />
+</g>
+</svg> </h1> <!-- Bouton burger (mobile) --> <button id="menu-toggle" class="burger" aria-label="Menu" aria-expanded="false"> <span class="bar"></span><span class="bar"></span><span class="bar"></span> </button> <!-- Liens de navigation --> <ul class="menu-list" id="menu-list"> <li> <a href="/" data-nav class="menu-link ">Accueil</a> </li><li> <a href="/projets" data-nav class="menu-link ">Projets</a> </li><li> <a href="/contact" data-nav class="menu-link ">Contact</a> </li> </ul> </nav> <!-- 🪄 Toggle mobile --> <script>
     const btn  = document.getElementById('menu-toggle');
     const list = document.getElementById('menu-list');
     btn.addEventListener('click', () => {
       const open = list.classList.toggle('open');
       btn.setAttribute('aria-expanded', open);
     });
-  </script> </header> <!-- Contenu principal --> <main>  <section class="chat-section"> <h2 class="chat-title">Soon</h2> </section>  </main> <!-- components/Footer.astro --><footer>
+  </script> </header> <!-- Contenu principal --> <main>  <section class="chat-section"> <h2 class="text-title">Soon</h2> </section>  </main> <!-- components/Footer.astro --><footer>
 © 2025 Léo Palich
 </footer> <!-- Router interne (SPA-like) --> <script type="module">
         const main = document.querySelector('main');
@@ -19,6 +38,11 @@
 
           /* Remplace le contenu du <main> */
           main.innerHTML = doc.querySelector('main').innerHTML;
+          setTimeout(() => {
+            if (window.initChat && typeof window.initChat === 'function') {
+              window.initChat();
+            }
+          }, 100);
 
           /* <title> + meta description */
           document.title = doc.title;
@@ -53,4 +77,4 @@
 
         /* Bouton précédent / suivant */
         window.addEventListener('popstate', () => navigate(location.href, false));
-      </script> </div> </body> <div class="glow-wrapper" id="bg" data-astro-cid-276go4px> <div class="gradient layer-1" data-astro-cid-276go4px></div> <div class="gradient layer-2" data-astro-cid-276go4px></div> <div class="gradient layer-3" data-astro-cid-276go4px></div> <div class="fog-texture" data-astro-cid-276go4px></div> <div class="noise" data-astro-cid-276go4px></div> <div class="grain" data-astro-cid-276go4px></div> </div> <script type="module">const c=document.querySelectorAll(".gradient"),r=[40,65,90];document.addEventListener("pointermove",t=>{const o=t.clientX/window.innerWidth-.5,i=t.clientY/window.innerHeight-.5;c.forEach((e,n)=>{e instanceof HTMLElement&&e.style.setProperty("--parallax",`translate(${o*r[n]}px, ${i*r[n]}px)`)})});</script> </html>
+      </script> </div> </body> <div class="glow-wrapper" id="bg" data-astro-cid-276go4px> <div class="gradient layer-1" data-astro-cid-276go4px></div> <div class="gradient layer-2" data-astro-cid-276go4px></div> <div class="gradient layer-3" data-astro-cid-276go4px></div> <div class="fog-texture" data-astro-cid-276go4px></div> <div class="noise" data-astro-cid-276go4px></div> <div class="grain" data-astro-cid-276go4px></div> <div class="dark-overlay" data-astro-cid-276go4px></div> </div> <script type="module">const c=document.querySelectorAll(".gradient"),r=[40,65,90];document.addEventListener("pointermove",t=>{const o=t.clientX/window.innerWidth-.5,i=t.clientY/window.innerHeight-.5;c.forEach((e,n)=>{e instanceof HTMLElement&&e.style.setProperty("--parallax",`translate(${o*r[n]}px, ${i*r[n]}px)`)})});</script> </html>

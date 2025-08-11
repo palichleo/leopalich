@@ -1,90 +1,247 @@
-<!DOCTYPE html><html lang="fr"> <head><meta charset="utf-8"><title>Léo Palich</title><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Léo Palich, étudiant en Sciences Cognitives, parcours Intelligence Artificielle Centrée Humain. Parlez lui à travers son ChatBot."><link rel="canonical" href="https://leopalich.com/"> <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Léo Palich","alternateName":"Leo Palich","url":"https://leopalich.com","sameAs":["https://www.linkedin.com/in/leopalich","https://github.com/leo-palich"],"jobTitle":"Etudiant en Sciences Cognitives","description":"Apprenant en traitement de données statistiques et intelligence artificielle"}</script> <link rel="stylesheet" href="/_astro/contact.B_57mOOF.css">
-<style>.chat-section{color:var(--light);flex:1;padding:2rem;max-width:clamp(48rem,90vw,50rem);margin:auto}.chat-glass-container{background:#ffffff1a;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.2);border-radius:0rem;box-shadow:0 8px 32px #0000004d,inset 0 1px #ffffff1a;padding:.5rem 1.5rem 1.5rem;margin-top:2rem;position:relative;overflow:hidden}.chat-glass-container:before{content:"";position:absolute;top:0;left:-50%;width:200%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.05),transparent);transform:skew(-25deg);pointer-events:none}.chat-title{color:var(--light);font-size:3rem;font-weight:700;text-align:center}.chat-title .electric,.chat-sub .electric{color:var(--accent)}.chat-sub{text-align:center;margin:.5rem auto 3rem;font-size:1rem;font-weight:400}.chat-output{margin-bottom:1rem;padding:1.2rem;height:230px;overflow-y:auto;overflow-x:hidden;white-space:pre-wrap;word-wrap:break-word;color:var(--light);background:linear-gradient(145deg,#0f0f1999,#19192380);border:1px solid rgba(255,255,255,.06);border-radius:0rem;box-shadow:0 8px 24px #0006,inset 0 1px 2px #ffffff0d;backdrop-filter:blur(18px);box-sizing:border-box;line-height:1.5;font-size:.95rem}.chat-output::-webkit-scrollbar{width:10px}.chat-output::-webkit-scrollbar-track{background:transparent;border-radius:0rem}.chat-output::-webkit-scrollbar-thumb{background:#fff3;border-radius:0rem;border:2px solid transparent;background-clip:content-box}.chat-output::-webkit-scrollbar-thumb:hover{background:#ffffff4d;background-clip:content-box}.chat-output::-webkit-scrollbar-corner{background:transparent}.typing-cursor:after,pre#result.typing-cursor:after{content:"▋";animation:blink .8s infinite;color:var(--light);font-size:1.1rem;font-weight:700}.chat-shell{position:relative;display:flex;align-items:flex-start;width:100%;max-width:var(--chat-wide);margin:auto;padding:1rem 4rem 1rem 1.2rem;border-radius:0rem;border:1px solid rgba(255,255,255,.08);background:linear-gradient(145deg,#0f0f1966,#232d374d);box-shadow:0 6px 24px #00000080,inset 0 1px 2px #ffffff0d;backdrop-filter:blur(16px);overflow:hidden}.chat-text{flex:1;background:transparent;border:none;color:var(--light);font-size:1rem;line-height:1.4;max-height:2.8rem;overflow-y:auto;resize:none;scrollbar-width:none;-ms-overflow-style:none}.chat-text::-webkit-scrollbar{display:none}.chat-text::placeholder{color:#fff9}.chat-text:focus{outline:none}.chat-actions{position:absolute;right:.8rem;bottom:.8rem;display:flex}.icon-wrapper{display:flex;align-items:center;justify-content:center}.action-btn svg{width:18px;height:18px;stroke-width:2;stroke:var(--accent);fill:none;pointer-events:none}.send-btn{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;padding:0;background:#ffffff04;border:1px solid rgba(255,255,255,.1);color:#fff;cursor:pointer;backdrop-filter:blur(12px);transition:all .2s ease}.send-btn:hover{background:#fff;color:var(--dark);box-shadow:0 0 0 1px #ffffff12,0 8px 18px #5302e94d,0 0 12px #22d3ee33;border:1px solid rgba(255,255,255,.12);transform:translateY(-1px) scale(1);transform:translate(-1px) scale(1)}.typing-cursor[data-astro-cid-j7pv25f6]:after{content:"|";animation:blink .8s infinite;color:#000}@keyframes blink{0%,to{opacity:1}50%{opacity:0}}
-</style></head> <body> <div class="page-wrapper"> <!-- Barre horizontale --> <!-- Barre horizontale collée en haut --><header class="topbar"> <nav class="topbar-nav"> <!-- Nom / logo --> <h1 class="site-name"> <a href="/" class="site-link" data-nav>Léo&nbsp;Palich</a> </h1> <!-- Bouton burger (mobile) --> <button id="menu-toggle" class="burger" aria-label="Menu" aria-expanded="false"> <span class="bar"></span><span class="bar"></span><span class="bar"></span> </button> <!-- Liens de navigation --> <ul class="menu-list" id="menu-list"> <li> <a href="/" data-nav class="menu-link is-active">Accueil</a> </li><li> <a href="/projets" data-nav class="menu-link ">Projets</a> </li><li> <a href="/contact" data-nav class="menu-link ">Contact</a> </li> </ul> </nav> <!-- 🪄 Toggle mobile --> <script>
+<!DOCTYPE html><html lang="fr"> <head><meta charset="utf-8"><title>Léo Palich</title><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Léo Palich, étudiant en Sciences Cognitives, parcours Intelligence Artificielle Centrée Humain. Parlez lui à travers son ChatBot."><link rel="canonical" href="https://leopalich.com/"> <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Léo Palich","alternateName":"Leo Palich","url":"https://leopalich.com","sameAs":["https://www.linkedin.com/in/leopalich","https://github.com/leo-palich"],"jobTitle":"Etudiant en Sciences Cognitives","description":"Apprenant en traitement de données statistiques et intelligence artificielle"}</script> <link rel="stylesheet" href="/_astro/contact.Dar3gDZZ.css">
+<style>.chat-content{margin-top:0rem;display:flex;flex-direction:column;position:relative;flex:1;overflow-y:auto;overflow-x:hidden;padding:1rem;justify-content:flex-start;gap:1rem;scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.2) transparent}.message-bubble{background:linear-gradient(135deg,#fffffff2,#fffffffa);color:var(--dark);padding:1.2rem 1.8rem;border-radius:1.8rem;font-size:1rem;line-height:1.5;box-shadow:0 8px 25px #00000026,0 0 40px #60a5fa1a;animation:messageAppear .5s ease-out;width:fit-content;max-width:85%;word-wrap:break-word;word-break:break-word;white-space:normal;overflow-wrap:break-word;hyphens:auto;transition:all .3s ease}.message-bubble.user-message{background:linear-gradient(135deg,#60a5fabb,#478af5a9);color:#fff;margin-left:auto;margin-right:0;border-bottom-right-radius:.5rem}.message-bubble.bot-message{margin-left:0;margin-right:auto;border-bottom-left-radius:.5rem}.message-bubble.typing{background:linear-gradient(135deg,#9ca3af33,#9ca3af4d);color:#fffc;animation:typingPulse 1.5s ease-in-out infinite}@keyframes messageAppear{0%{opacity:0;transform:translateY(20px) scale(.95)}to{opacity:1;transform:translateY(0) scale(1)}}@keyframes typingPulse{0%,to{opacity:.6;transform:scale(1)}50%{opacity:1;transform:scale(1.02)}}.chat-content::-webkit-scrollbar{width:6px}.chat-content::-webkit-scrollbar-track{background:transparent}.chat-content::-webkit-scrollbar-thumb{background:#fff3;border-radius:3px}.chat-content::-webkit-scrollbar-thumb:hover{background:#ffffff4d}.input-wrapper{padding:1.5rem;background:#0000004d;border-top:1px solid rgba(255,255,255,.1);flex-shrink:0;position:relative;z-index:20}.chat-section{max-width:1200px;margin:0 auto;padding:0;text-align:center}.chat-container{max-width:800px;margin:0 auto;position:relative}.chat-window{background:linear-gradient(135deg,#ffffff08,#ffffff0d);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.1);border-radius:2rem;overflow:hidden;box-shadow:0 0 100px #60a5fa33,0 20px 50px #0000004d;position:relative;transition:all .3s ease;height:500px;display:flex;flex-direction:column}.chat-window:hover{transform:translateY(-5px);box-shadow:0 0 120px #60a5fa4d,0 30px 60px #0006}.status-bar{background:#ffffff0d;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.1);flex-shrink:0}.status-indicator{display:flex;align-items:center;gap:.5rem;font-size:.9rem;color:#ffffffb3}.status-dot{width:8px;height:8px;background:#10b981;border-radius:50%;animation:statusPulse 2s ease-in-out infinite}@keyframes statusPulse{0%,to{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.2)}}@keyframes messageAppear{0%{opacity:0;transform:translateY(20px) scale(.9)}to{opacity:1;transform:translateY(0) scale(1)}}.input-container{display:flex;gap:1rem;max-width:600px;margin:0 auto}.chat-input{flex:1;background:#ffffff0d;border:1px solid rgba(255,255,255,.1);border-radius:2rem;padding:1rem 1.5rem;color:var(--light);font-size:1rem;transition:all .3s ease}.chat-input:focus{outline:none;background:#ffffff14;border-color:#ffffff60}.send-btn{background:var(--button);border:none;border-radius:50%;width:50px;height:50px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .3s ease;color:var(--light)}.send-btn:hover{background:var(--button-hover);transform:scale(1) rotate(40deg);color:var(--dark)}@media (max-width: 768px){.messages-area{padding:.8rem;gap:.8rem}.message-bubble{max-width:90%;font-size:.95rem;padding:1rem 1.4rem}.message-bubble.user-message,.message-bubble.bot-message{border-radius:1.5rem}.message-bubble.user-message{border-bottom-right-radius:.4rem}.message-bubble.bot-message{border-bottom-left-radius:.4rem}}.chat-input:focus{outline:none;background:#ffffff14;border-color:#fff3}.send-btn:disabled{opacity:.6;cursor:not-allowed;transform:scale(.95)}
+</style></head> <body> <div class="page-wrapper"> <!-- Barre horizontale --> <!-- Barre horizontale collée en haut --><header class="topbar"> <nav class="topbar-nav"> <!-- Nom / logo --> <h1 class="site-name"> <svg width="202.000000pt" height="246.000000pt" viewBox="0 0 202.000000 246.000000" preserveAspectRatio="xMidYMid meet" class="signature">
+
+<g transform="translate(0.000000,246.000000) scale(0.100000,-0.100000)" fill="#FFFF" stroke="none">
+<path d="M153 2404 c-3 -10 0 -22 8 -28 8 -6 45 -58 83 -116 107 -162 194
+-276 293 -380 l89 -95 17 -145 c9 -79 15 -145 13 -147 -1 -2 -38 28 -82 65
+-171 148 -348 270 -427 294 -58 17 -91 2 -95 -44 -4 -49 13 -86 127 -272 54
+-89 140 -232 192 -320 160 -274 287 -437 349 -451 40 -9 83 9 101 42 18 34 15
+193 -5 318 -8 50 -13 91 -12 92 2 2 36 -32 76 -75 41 -42 214 -219 384 -392
+171 -173 327 -335 346 -359 43 -53 92 -111 145 -171 23 -25 65 -74 95 -110 63
+-74 69 -80 92 -80 37 0 47 69 15 102 -7 7 -73 85 -147 173 -176 210 -366 420
+-476 525 -49 46 -195 189 -325 317 l-237 233 -21 143 c-12 78 -21 146 -21 150
+0 5 28 -16 63 -45 180 -156 285 -206 364 -173 68 29 68 107 -2 249 -83 170
+-218 313 -330 351 -92 31 -152 -4 -177 -104 l-14 -54 -65 74 c-70 79 -136 166
+-238 317 -35 51 -75 101 -89 112 -30 25 -80 26 -89 4z m673 -409 c49 -20 147
+-117 200 -196 71 -108 121 -230 107 -265 -19 -50 -197 62 -357 224 l-58 60 3
+79 c5 112 26 131 105 98z m-611 -249 c96 -64 269 -212 384 -329 l84 -85 23
+-149 c13 -81 24 -188 24 -237 l0 -90 -36 35 c-54 52 -171 210 -254 344 -40 66
+-112 181 -158 255 -47 74 -105 169 -129 210 -69 119 -58 127 62 46z" />
+</g>
+</svg> </h1> <!-- Bouton burger (mobile) --> <button id="menu-toggle" class="burger" aria-label="Menu" aria-expanded="false"> <span class="bar"></span><span class="bar"></span><span class="bar"></span> </button> <!-- Liens de navigation --> <ul class="menu-list" id="menu-list"> <li> <a href="/" data-nav class="menu-link is-active">Accueil</a> </li><li> <a href="/projets" data-nav class="menu-link ">Projets</a> </li><li> <a href="/contact" data-nav class="menu-link ">Contact</a> </li> </ul> </nav> <!-- 🪄 Toggle mobile --> <script>
     const btn  = document.getElementById('menu-toggle');
     const list = document.getElementById('menu-list');
     btn.addEventListener('click', () => {
       const open = list.classList.toggle('open');
       btn.setAttribute('aria-expanded', open);
     });
-  </script> </header> <!-- Contenu principal --> <main>   <section class="chat-section" data-astro-cid-j7pv25f6> <h2 class="chat-title" data-astro-cid-j7pv25f6>Discutez avec mon <mark class="black" data-astro-cid-j7pv25f6><span class="electric" data-astro-cid-j7pv25f6>LLM</span></mark></h2> <p class="chat-sub" data-astro-cid-j7pv25f6>Mon chatbot agit comme si il était moi. <br data-astro-cid-j7pv25f6><br data-astro-cid-j7pv25f6>C'est possible grâce à la génération augmentée de récupération <mark class="black" data-astro-cid-j7pv25f6><span class="electric" data-astro-cid-j7pv25f6>[RAG]</span></mark>.</p> <!-- Conteneur avec effet de verre givré --> <div class="chat-glass-container" data-astro-cid-j7pv25f6> <pre id="result" class="chat-output typing-cursor" data-astro-cid-j7pv25f6></pre> <form id="chat-form" class="chat-shell" data-astro-cid-j7pv25f6> <!-- zone d'écriture --> <textarea id="chat-input" name="prompt" class="chat-text" placeholder="Posez une question" rows="3" required data-astro-cid-j7pv25f6></textarea> <!-- actions (à droite) --> <div class="chat-actions" data-astro-cid-j7pv25f6> <button type="submit" title="Envoyer" class="send-btn" data-astro-cid-j7pv25f6> <!-- flèche --> <span class="icon-wrapper" data-astro-cid-j7pv25f6> <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-j7pv25f6> <line x1="22" y1="2" x2="11" y2="13" data-astro-cid-j7pv25f6></line> <polygon points="22 2 15 22 11 13 2 9 22 2" data-astro-cid-j7pv25f6></polygon> </svg> </span> </button> </div> </form> </div> </section>  <script type="module">
-    const form = document.querySelector('#chat-form');
-    const output = document.querySelector('#result');
-    const input = form.querySelector('#chat-input');
-    const submitBtn = form.querySelector('button');
+  </script> </header> <!-- Contenu principal --> <main>   <section class="chat-section"> <h1 class="title">Discutez avec mon&nbsp;<mark class="black">LLM</mark></h1> <p class="subtitle">Mon chatbot connait mes projets. </p> <div class="tech-badge"> <span>C'est possible grâce à la génération augmentée de récupération</span> </div> <div class="chat-container"> <div class="chat-window"> <!-- Status Bar --> <div class="status-bar"> <div class="status-indicator"> <div class="status-dot"></div> </div> <div class="status-indicator"> <span>Modèle: Gemma2 : 2B</span> </div> </div> <!-- Chat Content --> <div class="chat-content"></div> <div class="input-wrapper"> <div class="input-container"> <input type="text" class="chat-input" placeholder="Posez-moi une question..."> <button class="send-btn" id="sendBtn"> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <line x1="22" y1="2" x2="11" y2="13"></line> <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon> </svg> </button> </div> </div> </div> </div> </section> <script type="module">
+  function initChat() {
+  const messagesArea = document.querySelector('.chat-content');
+  const input = document.querySelector('.chat-input');
+  const sendBtn = document.querySelector('.send-btn');
+  
+  console.log('Elements trouvés:', { messagesArea, input, sendBtn });
 
-    // ✨ Message d'accueil au chargement de la page
-    window.addEventListener('DOMContentLoaded', () => {
-      output.textContent = "Bonjour, je suis Léo !\n\n";
-      output.classList.add('typing-cursor');
-    });
+  if (!messagesArea || !input || !sendBtn) {
+    console.error('Éléments manquants - Vérifiez les classes CSS');
+    return;
+  }
 
-    // ✨ Envoi avec la touche Entrée
-    input.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' && !e.shiftKey) {
-        e.preventDefault();
-        const prompt = input.value.trim();
-        if (prompt) {
-          form.requestSubmit();
-        }
-      }
-    });
+  let isTyping = false;
+  let conversationHistory = []; // Historique de la conversation
 
-    // Soumission du formulaire
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
+  // Fonction pour créer une bulle de message
+  function createMessageBubble(content, isUser = false, isTyping = false) {
+    const bubble = document.createElement('div');
+    bubble.className = `message-bubble ${isUser ? 'user-message' : 'bot-message'}`;
+    
+    if (isTyping) {
+      bubble.classList.add('typing');
+    }
+    
+    bubble.textContent = content;
+    return bubble;
+  }
 
-      const prompt = input.value.trim();
-      if (!prompt) return;
+  // Fonction pour ajouter un message à l'interface
+  function addMessage(content, isUser = false) {
+    const bubble = createMessageBubble(content, isUser);
+    messagesArea.appendChild(bubble);
+    
+    // Scroll automatique vers le bas
+    messagesArea.scrollTop = messagesArea.scrollHeight;
+    
+    return bubble;
+  }
 
-      // Ajouter la question à la conversation
-      output.textContent += `> ${prompt}\n\n`;
-      output.classList.add('typing-cursor');
+  // Fonction pour afficher l'indicateur de frappe
+  function showTypingIndicator() {
+    const typingBubble = createMessageBubble("🤔 Laisse-moi réfléchir...", false, true);
+    typingBubble.id = 'typing-indicator';
+    messagesArea.appendChild(typingBubble);
+    messagesArea.scrollTop = messagesArea.scrollHeight;
+    return typingBubble;
+  }
 
-      input.value = '';
-      input.blur();
-      submitBtn.disabled = true;
+  // Fonction pour supprimer l'indicateur de frappe
+  function removeTypingIndicator() {
+    const typingIndicator = document.getElementById('typing-indicator');
+    if (typingIndicator) {
+      typingIndicator.remove();
+    }
+  }
 
-      try {
-        const res = await fetch('https://api.leopalich.com/ask', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ prompt })
-        });
-
-        if (!res.ok) {
-          throw new Error(`Erreur ${res.status}: ${await res.text()}`);
-        }
-
-        const reader = res.body.getReader();
-        const decoder = new TextDecoder();
-
-        while (true) {
-          const { done, value } = await reader.read();
-          if (done) break;
-
-          const chunk = decoder.decode(value, { stream: true });
-          output.textContent += chunk;
-          output.scrollTop = output.scrollHeight;
-        }
-
-        // Ajouter un saut de ligne après la réponse pour la prochaine question
-        output.textContent += '\n\n';
-
-      } catch (err) {
-        console.error(err);
-        output.textContent += `\n\n[Erreur] ${err.message || 'Problème de connexion'}\n\n`;
-      } finally {
-        submitBtn.disabled = false;
-        output.classList.remove('typing-cursor');
+  // Fonction pour afficher la réponse avec effet de frappe
+  function typeResponse(text, targetBubble) {
+    targetBubble.textContent = '';
+    targetBubble.classList.remove('typing');
+    let i = 0;
+    
+    const typeInterval = setInterval(() => {
+      targetBubble.textContent += text[i];
+      i++;
+      
+      // Scroll pendant la frappe
+      messagesArea.scrollTop = messagesArea.scrollHeight;
+      
+      if (i >= text.length) {
+        clearInterval(typeInterval);
+        isTyping = false;
         
-        // Remettre le curseur clignotant après la réponse
-        setTimeout(() => {
-          output.classList.add('typing-cursor');
-        }, 100);
+        // Ajouter à l'historique
+        conversationHistory.push({
+          type: 'bot',
+          content: text,
+          timestamp: new Date()
+        });
       }
+    }, 40);
+  }
+
+  // Fonction principale d'envoi de message
+  async function sendMessage() {
+    const prompt = input.value.trim();
+    if (!prompt || isTyping) return;
+
+    console.log('Envoi du message:', prompt);
+
+    // Ajouter le message utilisateur à l'interface et à l'historique
+    addMessage(prompt, true);
+    conversationHistory.push({
+      type: 'user',
+      content: prompt,
+      timestamp: new Date()
     });
-  </script>  </main> <!-- components/Footer.astro --><footer>
+
+    // Vider l'input et désactiver le bouton
+    input.value = '';
+    sendBtn.disabled = true;
+    isTyping = true;
+
+    // Afficher l'indicateur de frappe
+    const typingIndicator = showTypingIndicator();
+
+    try {
+      const response = await fetch('https://api.leopalich.com/ask', {
+        method: 'POST',
+        headers: { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json, text/plain'
+        },
+        body: JSON.stringify({ prompt })
+      });
+
+      console.log('Status:', response.status);
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(`Erreur ${response.status}: ${errorText}`);
+      }
+
+      const contentType = response.headers.get("content-type");
+      console.log('Content-Type:', contentType);
+
+      let responseText = '';
+
+      if (contentType && contentType.includes("application/json")) {
+        const data = await response.json();
+        responseText = data.response || data.message || data.answer || JSON.stringify(data);
+      } else {
+        responseText = await response.text();
+      }
+
+      console.log('Réponse reçue:', responseText);
+      
+      // Supprimer l'indicateur de frappe et créer la bulle de réponse
+      removeTypingIndicator();
+      
+      if (responseText) {
+        const responseBubble = addMessage('', false); // Bulle vide pour commencer
+        typeResponse(responseText, responseBubble);
+      } else {
+        const responseBubble = addMessage("Réponse vide reçue du serveur.", false);
+        conversationHistory.push({
+          type: 'bot',
+          content: "Réponse vide reçue du serveur.",
+          timestamp: new Date()
+        });
+        isTyping = false;
+      }
+
+    } catch (error) {
+      console.error('Erreur détaillée:', error);
+      removeTypingIndicator();
+      
+      const errorMessage = `Désolé, erreur: ${error.message}`;
+      const errorBubble = addMessage(errorMessage, false);
+      conversationHistory.push({
+        type: 'bot',
+        content: errorMessage,
+        timestamp: new Date()
+      });
+      isTyping = false;
+    } finally {
+      sendBtn.disabled = false;
+    }
+  }
+
+  // Fonction pour vider le message d'accueil initial et démarrer proprement
+  function initializeChat() {
+    // Supprimer le message d'accueil existant
+    messagesArea.innerHTML = '';
+    
+    // Ajouter le message d'accueil à l'historique et à l'interface
+    const welcomeMessage = "Bonjour, je suis Léo 👋";
+    
+    addMessage(welcomeMessage, false);
+    conversationHistory.push({
+      type: 'bot',
+      content: welcomeMessage,
+      timestamp: new Date()
+    });
+  }
+
+  // Event listeners
+  sendBtn.addEventListener('click', sendMessage);
+  input.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter' && !isTyping) {
+      sendMessage();
+    }
+  });
+
+  // Initialiser le chat
+  initializeChat();
+  input.focus();
+
+  // Fonction pour debug (optionnel)
+  window.getChatHistory = () => {
+    console.log('Historique de conversation:', conversationHistory);
+    return conversationHistory;
+  };
+}
+
+// Initialisation
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initChat);
+} else {
+  setTimeout(initChat, 100);
+}
+
+// Export global pour le router
+window.initChat = initChat;
+</script>  </main> <!-- components/Footer.astro --><footer>
 © 2025 Léo Palich
 </footer> <!-- Router interne (SPA-like) --> <script type="module">
         const main = document.querySelector('main');
@@ -98,6 +255,11 @@
 
           /* Remplace le contenu du <main> */
           main.innerHTML = doc.querySelector('main').innerHTML;
+          setTimeout(() => {
+            if (window.initChat && typeof window.initChat === 'function') {
+              window.initChat();
+            }
+          }, 100);
 
           /* <title> + meta description */
           document.title = doc.title;
@@ -132,4 +294,4 @@
 
         /* Bouton précédent / suivant */
         window.addEventListener('popstate', () => navigate(location.href, false));
-      </script> </div> </body> <div class="glow-wrapper" id="bg" data-astro-cid-276go4px> <div class="gradient layer-1" data-astro-cid-276go4px></div> <div class="gradient layer-2" data-astro-cid-276go4px></div> <div class="gradient layer-3" data-astro-cid-276go4px></div> <div class="fog-texture" data-astro-cid-276go4px></div> <div class="noise" data-astro-cid-276go4px></div> <div class="grain" data-astro-cid-276go4px></div> </div> <script type="module">const c=document.querySelectorAll(".gradient"),r=[40,65,90];document.addEventListener("pointermove",t=>{const o=t.clientX/window.innerWidth-.5,i=t.clientY/window.innerHeight-.5;c.forEach((e,n)=>{e instanceof HTMLElement&&e.style.setProperty("--parallax",`translate(${o*r[n]}px, ${i*r[n]}px)`)})});</script> </html>
+      </script> </div> </body> <div class="glow-wrapper" id="bg" data-astro-cid-276go4px> <div class="gradient layer-1" data-astro-cid-276go4px></div> <div class="gradient layer-2" data-astro-cid-276go4px></div> <div class="gradient layer-3" data-astro-cid-276go4px></div> <div class="fog-texture" data-astro-cid-276go4px></div> <div class="noise" data-astro-cid-276go4px></div> <div class="grain" data-astro-cid-276go4px></div> <div class="dark-overlay" data-astro-cid-276go4px></div> </div> <script type="module">const c=document.querySelectorAll(".gradient"),r=[40,65,90];document.addEventListener("pointermove",t=>{const o=t.clientX/window.innerWidth-.5,i=t.clientY/window.innerHeight-.5;c.forEach((e,n)=>{e instanceof HTMLElement&&e.style.setProperty("--parallax",`translate(${o*r[n]}px, ${i*r[n]}px)`)})});</script> </html>
