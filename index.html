@@ -133,68 +133,79 @@
     // Afficher l'indicateur de frappe
     const typingIndicator = showTypingIndicator();
 
-    try {
-      const response = await fetch('https://api.leopalich.com/ask', {
-        method: 'POST',
-        headers: { 
-          'Content-Type': 'application/json',
-          'Accept': 'application/json, text/plain'
-        },
-        body: JSON.stringify({ prompt })
-      });
+  try {
+  const response = await fetch('https://api.leopalich.com/ask', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'text/plain' // ← on veut un flux texte
+    },
+    body: JSON.stringify({ prompt })
+  });
 
-      console.log('Status:', response.status);
+  console.log('Status:', response.status);
+  if (!response.ok) {
+    const errorText = await response.text().catch(() => '');
+    throw new Error(`Erreur ${response.status}: ${errorText}`);
+  }
 
-      if (!response.ok) {
-        const errorText = await response.text();
-        throw new Error(`Erreur ${response.status}: ${errorText}`);
-      }
+  // on prépare la bulle AVANT de lire le flux
+  removeTypingIndicator();
+  const responseBubble = addMessage('', false); // bulle vide
+  let displayed = '';
 
-      const contentType = response.headers.get("content-type");
-      console.log('Content-Type:', contentType);
+  // si pas de streaming dispo (vieux navigateur / proxy), fallback en texte complet
+  if (!response.body || !response.body.getReader) {
+    const full = await response.text();
+    displayed = full || 'Réponse vide reçue du serveur.';
+    // si tu veux l’effet “typer”, garde ta fonction :
+    // typeResponse(displayed, responseBubble);
+    responseBubble.textContent = displayed;
+    conversationHistory.push({ type: 'bot', content: displayed, timestamp: new Date() });
+    isTyping = false;
+  } else {
+    const reader = response.body.getReader();
+    const decoder = new TextDecoder('utf-8');
+    let buffer = '';
 
-      let responseText = '';
+    // lire chunk par chunk
+    while (true) {
+      const { value, done } = await reader.read();
+      if (done) break;
+      buffer += decoder.decode(value, { stream: true });
 
-      if (contentType && contentType.includes("application/json")) {
-        const data = await response.json();
-        responseText = data.response || data.message || data.answer || JSON.stringify(data);
+      // on pousse ce qu’on a à l’écran (pas de re-typage complet)
+      displayed += buffer;
+      buffer = '';
+
+      // si addMessage te renvoie un élément, mets à jour son texte :
+      if (responseBubble && 'textContent' in responseBubble) {
+        responseBubble.textContent = displayed;
       } else {
-        responseText = await response.text();
+        // fallback si ta fonction renvoie autre chose
+        typeResponse(displayed, responseBubble);
       }
+    }
 
-      console.log('Réponse reçue:', responseText);
-      
-      // Supprimer l'indicateur de frappe et créer la bulle de réponse
-      removeTypingIndicator();
-      
-      if (responseText) {
-        const responseBubble = addMessage('', false); // Bulle vide pour commencer
-        typeResponse(responseText, responseBubble);
-      } else {
-        const responseBubble = addMessage("Réponse vide reçue du serveur.", false);
-        conversationHistory.push({
-          type: 'bot',
-          content: "Réponse vide reçue du serveur.",
-          timestamp: new Date()
-        });
-        isTyping = false;
-      }
-
-    } catch (error) {
+    if (!displayed) displayed = 'Réponse vide reçue du serveur.';
+    conversationHistory.push({ type: 'bot', content: displayed, timestamp: new Date() });
+    isTyping = false;
+  }
+  } catch (error) {
       console.error('Erreur détaillée:', error);
       removeTypingIndicator();
-      
       const errorMessage = `Désolé, erreur: ${error.message}`;
       const errorBubble = addMessage(errorMessage, false);
-      conversationHistory.push({
-        type: 'bot',
-        content: errorMessage,
-        timestamp: new Date()
-      });
+      conversationHistory.push({ type: 'bot', content: errorMessage, timestamp: new Date() });
       isTyping = false;
-    } finally {
+  } finally {
       sendBtn.disabled = false;
-    }
+  }
+
+
+
+
+
   }
 
   // Fonction pour vider le message d'accueil initial et démarrer proprement
