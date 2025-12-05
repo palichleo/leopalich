@@ -1,14 +1,29 @@
-<!DOCTYPE html><html lang="fr"> <head><meta charset="utf-8"><title>Contact - Léo Palich</title><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Portfolio de Léo Palich, étudiant en sciences cognitives, parcours Intelligence Artificielle Centrée Humain"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="canonical" href="https://leopalich.com/"><link rel="stylesheet" href="/_astro/contact.BexVHR91.css"></head> <body> <div class="page-wrapper"> <!-- Barre horizontale --> <!-- Barre horizontale collée en haut --><header class="topbar"> <nav class="topbar-nav"> <!-- Nom / logo --> <h1 class="site-name">LP</h1> <!-- Bouton burger (mobile) --> <button id="menu-toggle" class="burger" aria-label="Menu" aria-expanded="false"> <span class="bar"></span><span class="bar"></span><span class="bar"></span> </button> <!-- Liens de navigation --> <ul class="menu-list" id="menu-list"> <li> <a href="/" data-nav class="menu-link "> Accueil </a> </li><li> <a href="/projets" data-nav class="menu-link "> Projets </a> </li><li> <a href="/contact" data-nav class="menu-link "> Contact </a> </li> </ul> </nav> <!-- mobile --> <script>
+<!DOCTYPE html><html lang="fr"> <head><meta charset="utf-8"><title>Contact - Léo Palich</title><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta name="description" content="Portfolio de Léo Palich, étudiant en sciences cognitives, parcours Intelligence Artificielle Centrée Humain"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="canonical" href="https://leopalich.com/"><link rel="stylesheet" href="/_astro/contact.CGkJtEde.css"></head> <body> <div class="page-wrapper"> <!-- Barre horizontale --> <!-- Barre horizontale collée en haut --><header class="topbar"> <nav class="topbar-nav"> <!-- Nom / logo --> <h1 class="site-name">LP</h1> <!-- Bouton burger (mobile) --> <button id="menu-toggle" class="burger" aria-label="Menu" aria-expanded="false"> <span class="bar"></span><span class="bar"></span><span class="bar"></span> </button> <!-- Liens de navigation --> <ul class="menu-list" id="menu-list"> <li> <a href="/" data-nav class="menu-link "> Accueil </a> </li><li> <a href="/projets" data-nav class="menu-link "> Projets </a> </li><li> <a href="/contact" data-nav class="menu-link "> Contact </a> </li> </ul> </nav> <!-- mobile --> <script>
     const btn = document.getElementById("menu-toggle");
     const list = document.getElementById("menu-list");
+    const links = list.querySelectorAll("a");
+
     btn.addEventListener("click", () => {
       const open = list.classList.toggle("open");
       btn.setAttribute("aria-expanded", open);
     });
-  </script> </header> <!-- Contenu principal --> <main>  <section class="chat-section"> <h2 class="text-title">Soon</h2> </section>  </main> <div class="chat-container"> <div class="chat-window"> <!-- Status Bar --> <div class="status-bar"> <div class="status-indicator"> <span>🤖</span> </div> </div> <!-- Chat Content --> <div class="chat-content"></div> <div class="input-wrapper"> <div class="input-container"> <input type="text" class="chat-input" placeholder="Posez-moi une question..."> <button class="send-btn" id="sendBtn"> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <line x1="22" y1="2" x2="11" y2="13"></line> <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon> </svg> </button> </div> </div> </div> </div> <script type="module">
+
+    // Fermer le menu quand on clique sur un lien
+    links.forEach((link) => {
+      link.addEventListener(
+        "click",
+        () => {
+          list.classList.remove("open");
+          btn.setAttribute("aria-expanded", "false");
+        },
+        true,
+      ); // Use capture phase to fire before SPA navigation
+    });
+  </script> </header> <!-- Contenu principal --> <main>  <section class="chat-section"> <h1 class="title">Contactez-moi</h1> </section> <div class="glass-window"> <div class="contact-blocks"> <a href="mailto:palichleo@gmail.com" class="contact-block-link"> <div class="icon-wrapper"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="card-icon"> <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path> <polyline points="22,6 12,13 2,6"></polyline> </svg> </div> <h3>Email</h3> </a> <a href="https://www.linkedin.com/in/leopalich" target="_blank" rel="noopener noreferrer" class="contact-block-link"> <div class="icon-wrapper"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="card-icon"> <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path> <rect x="2" y="9" width="4" height="12"></rect> <circle cx="4" cy="4" r="2"></circle> </svg> </div> <h3>LinkedIn</h3> </a> </div> </div>  </main> <div class="chat-container"> <div class="chat-window"> <!-- Status Bar --> <div class="status-bar"> <div class="status-indicator"> <span>Chat</span> </div> <button id="fullscreen-btn" class="fullscreen-btn" aria-label="Fullscreen"> <svg class="expand-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path> </svg> <svg class="compress-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3"></path> </svg> </button> </div> <!-- Chat Content --> <div class="chat-content"></div> <div class="input-wrapper"> <div class="input-container"> <input type="text" class="chat-input" placeholder="Posez-moi une question..."> <button class="send-btn" id="sendBtn"> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <line x1="22" y1="2" x2="11" y2="13"></line> <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon> </svg> </button> </div> </div> </div> </div> <script type="module">
   function initChat() {
     const rootContainer = document.querySelector(".chat-container");
     const headerBar = document.querySelector(".status-bar");
+    const fullscreenBtn = document.getElementById("fullscreen-btn");
     const MINIMIZED_KEY = "lp_chat_minimized_v1";
     const messagesArea = document.querySelector(".chat-content");
     const input = document.querySelector(".chat-input");
@@ -26,8 +41,14 @@
       /* no-op */
     }
 
-    // --- toggle au clic sur la barre
-    headerBar.addEventListener("click", () => {
+    // --- toggle au clic sur la barre (seulement si pas en fullscreen)
+    headerBar.addEventListener("click", (e) => {
+      // Ignore if clicking the fullscreen button
+      if (e.target.closest("#fullscreen-btn")) return;
+
+      // Ignore if in fullscreen mode
+      if (rootContainer.classList.contains("fullscreen")) return;
+
       const willCollapse = !rootContainer.classList.contains("collapsed");
       rootContainer.classList.toggle("collapsed", willCollapse);
       try {
@@ -39,6 +60,21 @@
           messagesArea.scrollTop = messagesArea.scrollHeight;
         }, 50);
       }
+    });
+
+    // --- fullscreen toggle
+    fullscreenBtn.addEventListener("click", (e) => {
+      e.stopPropagation(); // Prevent header click event
+      rootContainer.classList.toggle("fullscreen");
+
+      // If entering fullscreen, make sure it's not collapsed
+      if (rootContainer.classList.contains("fullscreen")) {
+        rootContainer.classList.remove("collapsed");
+      }
+
+      setTimeout(() => {
+        messagesArea.scrollTop = messagesArea.scrollHeight;
+      }, 50);
     });
 
     // ==== helpers ====
