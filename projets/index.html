@@ -1,74 +1,328 @@
-<!DOCTYPE html><html lang="fr"> <head><meta charset="utf-8"><title>Projets – Léo Palich</title><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Portfolio de Léo Palich, étudiant en sciences cognitives, parcours Intelligence Artificielle Centrée Humain"><link rel="canonical" href="https://leopalich.com/"><link rel="stylesheet" href="/_astro/contact.B7N60HLm.css"></head> <body> <div class="page-wrapper"> <!-- Barre horizontale --> <!-- Barre horizontale collée en haut --><header class="topbar"> <nav class="topbar-nav"> <!-- Nom / logo --> <h1 class="site-name"> <svg width="202.000000pt" height="246.000000pt" viewBox="0 0 202.000000 246.000000" preserveAspectRatio="xMidYMid meet" class="signature">
+<!DOCTYPE html><html lang="fr"> <head><meta charset="utf-8"><title>Projets - Léo Palich</title><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta name="description" content="Portfolio de Léo Palich, étudiant en sciences cognitives, parcours Intelligence Artificielle Centrée Humain"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="canonical" href="https://leopalich.com/"><link rel="stylesheet" href="/_astro/contact.Dai3gNQY.css"></head> <body> <div class="page-wrapper"> <!-- Barre horizontale --> <!-- Barre horizontale collée en haut --><header class="topbar"> <nav class="topbar-nav"> <!-- Nom / logo --> <h1 class="site-name"> <span class="first">Léo</span> <span class="last">Palich</span> </h1> <!-- Bouton burger (mobile) --> <button id="menu-toggle" class="burger" aria-label="Menu" aria-expanded="false"> <span class="bar"></span><span class="bar"></span><span class="bar"></span> </button> <!-- Liens de navigation --> <ul class="menu-list" id="menu-list"> <li> <a href="/" data-nav class="menu-link "> Accueil </a> </li><li> <a href="/projets" data-nav class="menu-link "> Projets </a> </li><li> <a href="/contact" data-nav class="menu-link "> Contact </a> </li> </ul> </nav> </header> <!-- Backdrop blur overlay for mobile menu (outside header) --> <div class="menu-backdrop" id="menu-backdrop"></div> <!-- mobile --> <script>
+  const btn = document.getElementById("menu-toggle");
+  const list = document.getElementById("menu-list");
+  const backdrop = document.getElementById("menu-backdrop");
+  const links = list.querySelectorAll("a");
 
-<g transform="translate(0.000000,246.000000) scale(0.100000,-0.100000)" fill="#FFFF" stroke="none">
-<path d="M153 2404 c-3 -10 0 -22 8 -28 8 -6 45 -58 83 -116 107 -162 194
--276 293 -380 l89 -95 17 -145 c9 -79 15 -145 13 -147 -1 -2 -38 28 -82 65
--171 148 -348 270 -427 294 -58 17 -91 2 -95 -44 -4 -49 13 -86 127 -272 54
--89 140 -232 192 -320 160 -274 287 -437 349 -451 40 -9 83 9 101 42 18 34 15
-193 -5 318 -8 50 -13 91 -12 92 2 2 36 -32 76 -75 41 -42 214 -219 384 -392
-171 -173 327 -335 346 -359 43 -53 92 -111 145 -171 23 -25 65 -74 95 -110 63
--74 69 -80 92 -80 37 0 47 69 15 102 -7 7 -73 85 -147 173 -176 210 -366 420
--476 525 -49 46 -195 189 -325 317 l-237 233 -21 143 c-12 78 -21 146 -21 150
-0 5 28 -16 63 -45 180 -156 285 -206 364 -173 68 29 68 107 -2 249 -83 170
--218 313 -330 351 -92 31 -152 -4 -177 -104 l-14 -54 -65 74 c-70 79 -136 166
--238 317 -35 51 -75 101 -89 112 -30 25 -80 26 -89 4z m673 -409 c49 -20 147
--117 200 -196 71 -108 121 -230 107 -265 -19 -50 -197 62 -357 224 l-58 60 3
-79 c5 112 26 131 105 98z m-611 -249 c96 -64 269 -212 384 -329 l84 -85 23
--149 c13 -81 24 -188 24 -237 l0 -90 -36 35 c-54 52 -171 210 -254 344 -40 66
--112 181 -158 255 -47 74 -105 169 -129 210 -69 119 -58 127 62 46z" />
-</g>
-</svg> </h1> <!-- Bouton burger (mobile) --> <button id="menu-toggle" class="burger" aria-label="Menu" aria-expanded="false"> <span class="bar"></span><span class="bar"></span><span class="bar"></span> </button> <!-- Liens de navigation --> <ul class="menu-list" id="menu-list"> <li> <a href="/" data-nav class="menu-link ">Accueil</a> </li><li> <a href="/projets" data-nav class="menu-link ">Projets</a> </li><li> <a href="/contact" data-nav class="menu-link ">Contact</a> </li> </ul> </nav> <!-- 🪄 Toggle mobile --> <script>
-    const btn  = document.getElementById('menu-toggle');
-    const list = document.getElementById('menu-list');
-    btn.addEventListener('click', () => {
-      const open = list.classList.toggle('open');
-      btn.setAttribute('aria-expanded', open);
+  btn.addEventListener("click", () => {
+    const open = list.classList.toggle("open");
+    backdrop.classList.toggle("active", open);
+    btn.setAttribute("aria-expanded", open);
+  });
+
+  // Fermer le menu quand on clique sur le backdrop
+  backdrop.addEventListener("click", () => {
+    list.classList.remove("open");
+    backdrop.classList.remove("active");
+    btn.setAttribute("aria-expanded", "false");
+  });
+
+  // Fermer le menu quand on clique sur un lien
+  links.forEach((link) => {
+    link.addEventListener(
+      "click",
+      () => {
+        list.classList.remove("open");
+        backdrop.classList.remove("active");
+        btn.setAttribute("aria-expanded", "false");
+      },
+      true,
+    ); // Use capture phase to fire before SPA navigation
+  });
+</script> <!-- Contenu principal --> <main>  <section class="chat-section projets"> <h1 class="title">Parcourez mes projets</h1> <div class="mx-auto max-w-7xl px-6"> <div class="glass-window"> <div class="project-grid"> <article class="project-card"> <div class="project-media"> <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bot project-icon" aria-hidden="true"><path d="M12 8V4H8"></path><rect width="16" height="12" x="4" y="8" rx="2"></rect><path d="M2 14h2"></path><path d="M20 14h2"></path><path d="M15 13v2"></path><path d="M9 13v2"></path></svg> </div> <div class="project-body"> <h3 class="project-title">Chatbot LLM - RAG</h3> <p class="project-desc">Un chatbot intégrant un pipeline de requêtes vers un RAG, puis une API servant des réponses en streaming.</p> <ul class="project-skills"> <li class="skill">RAG</li><li class="skill">JavaScript</li><li class="skill">API</li> </ul> <div class="project-cta"> <a class="project-btn" href="javascript:void(0)" onclick="askChatbot(&#34;Donnes moi plus de détails à propos de Chatbot LLM - RAG&#34;)">
+Détails
+</a> </div> </div> </article><article class="project-card"> <div class="project-media"> <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chart-line project-icon" aria-hidden="true"><path d="M3 3v16a2 2 0 0 0 2 2h16"></path><path d="m19 9-5 5-4-4-3 3"></path></svg> </div> <div class="project-body"> <h3 class="project-title">Prediction des marchés</h3> <p class="project-desc">Prediction des variations des marchés relatifs à la crypto-monnaie.</p> <ul class="project-skills"> <li class="skill">Python</li><li class="skill">Pandas</li><li class="skill">TensorFlow</li><li class="skill">ML</li> </ul> <div class="project-cta"> <a class="project-btn" href="javascript:void(0)" onclick="askChatbot(&#34;Donnes moi plus de détails à propos de Prediction des marchés&#34;)">
+Détails
+</a> </div> </div> </article><article class="project-card"> <div class="project-media"> <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-hand project-icon" aria-hidden="true"><path d="M18 11V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2"></path><path d="M14 10V4a2 2 0 0 0-2-2a2 2 0 0 0-2 2v2"></path><path d="M10 10.5V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2v8"></path><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"></path></svg> </div> <div class="project-body"> <h3 class="project-title">Control d&#39;un robot par les gestes</h3> <p class="project-desc">Entrainement d&#39;un modèle de réseaux de neurones pour contrôler un robot par les gestes de la main.</p> <ul class="project-skills"> <li class="skill">Mediapipe</li><li class="skill">OpenCV</li><li class="skill">MLP</li><li class="skill">Webots</li> </ul> <div class="project-cta"> <a class="project-btn" href="javascript:void(0)" onclick="askChatbot(&#34;Donnes moi plus de détails à propos de Control d'un robot par les gestes&#34;)">
+Détails
+</a> </div> </div> </article><article class="project-card"> <div class="project-media"> <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-lock project-icon" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg> </div> <div class="project-body"> <h3 class="project-title">Stéganographie et chiffrement</h3> <p class="project-desc">Logiciel de chiffrement et stockage de la clé dans un fichier quelconque en utilisant la stéganographie.</p> <ul class="project-skills"> <li class="skill">Java</li><li class="skill">Chiffrement</li><li class="skill">Stéganographie</li> </ul> <div class="project-cta"> <a class="project-btn" href="javascript:void(0)" onclick="askChatbot(&#34;Donnes moi plus de détails à propos de Stéganographie et chiffrement&#34;)">
+Détails
+</a> </div> </div> </article><article class="project-card"> <div class="project-media"> <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-scan project-icon" aria-hidden="true"><path d="M3 7V5a2 2 0 0 1 2-2h2"></path><path d="M17 3h2a2 2 0 0 1 2 2v2"></path><path d="M21 17v2a2 2 0 0 1-2 2h-2"></path><path d="M7 21H5a2 2 0 0 1-2-2v-2"></path></svg> </div> <div class="project-body"> <h3 class="project-title">Detection de silhouettes</h3> <p class="project-desc">Détecter des silhouettes extrêmement variables en temps réel grâce à un modèle YOLO intégré dans un overlay.</p> <ul class="project-skills"> <li class="skill">YOLO</li><li class="skill">OpenCV</li><li class="skill">ML</li><li class="skill">Torch</li> </ul> <div class="project-cta"> <a class="project-btn" href="javascript:void(0)" onclick="askChatbot(&#34;Donnes moi plus de détails à propos de Detection de silhouettes&#34;)">
+Détails
+</a> </div> </div> </article><article class="project-card"> <div class="project-media"> <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-layout-dashboard project-icon" aria-hidden="true"><rect width="7" height="9" x="3" y="3" rx="1"></rect><rect width="7" height="5" x="14" y="3" rx="1"></rect><rect width="7" height="9" x="14" y="12" rx="1"></rect><rect width="7" height="5" x="3" y="16" rx="1"></rect></svg> </div> <div class="project-body"> <h3 class="project-title">Mon portfolio</h3> <p class="project-desc">Création d&#39;un site web de A à Z sans CMS.</p> <ul class="project-skills"> <li class="skill">Node.js</li><li class="skill">UX/UI</li><li class="skill">Astro</li> </ul> <div class="project-cta"> <a class="project-btn" href="javascript:void(0)" onclick="askChatbot(&#34;Donnes moi plus de détails à propos de Mon portfolio&#34;)">
+Détails
+</a> </div> </div> </article> </div> </div> </div> </section>  </main> <div class="chat-container"> <div class="chat-window"> <!-- Status Bar --> <div class="status-bar"> <div class="status-indicator"> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path> <circle cx="9" cy="10" r="0.5" fill="currentColor"></circle> <circle cx="12" cy="10" r="0.5" fill="currentColor"></circle> <circle cx="15" cy="10" r="0.5" fill="currentColor"></circle> </svg> </div> <div class="status-buttons"> <button id="fullscreen-btn" class="fullscreen-btn" aria-label="Fullscreen"> <svg class="expand-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path> </svg> <svg class="compress-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3"></path> </svg> </button> <button id="toggle-btn" class="toggle-btn" aria-label="Toggle Chat"> <svg class="chevron-up-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <polyline points="18 15 12 9 6 15"></polyline> </svg> <svg class="chevron-down-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <polyline points="6 9 12 15 18 9"></polyline> </svg> </button> </div> </div> <!-- Chat Content --> <div class="chat-content"></div> <div class="input-wrapper"> <div class="input-container"> <input type="text" class="chat-input" placeholder="Posez-moi une question..."> <button class="send-btn" id="sendBtn"> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <line x1="22" y1="2" x2="11" y2="13"></line> <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon> </svg> </button> </div> </div> </div> </div> <script type="module">
+  function initChat() {
+    const rootContainer = document.querySelector(".chat-container");
+    const headerBar = document.querySelector(".status-bar");
+    const toggleBtn = document.getElementById("toggle-btn");
+    const fullscreenBtn = document.getElementById("fullscreen-btn");
+    const MINIMIZED_KEY = "lp_chat_minimized_v1";
+    const messagesArea = document.querySelector(".chat-content");
+    const input = document.querySelector(".chat-input");
+    const sendBtn = document.querySelector(".send-btn");
+    if (!messagesArea || !input || !sendBtn) return;
+
+    const HISTORY_KEY = "lp_chat_history_v1";
+    let conversationHistory = [];
+    let isTyping = false;
+
+    try {
+      const wasCollapsed = localStorage.getItem(MINIMIZED_KEY) === "1";
+      if (wasCollapsed) rootContainer.classList.add("collapsed");
+    } catch {
+      /* no-op */
+    }
+
+    // --- toggle au clic sur la barre (seulement si pas en fullscreen)
+    headerBar.addEventListener("click", (e) => {
+      // Ignore if clicking the toggle or fullscreen button
+      if (
+        e.target.closest("#toggle-btn") ||
+        e.target.closest("#fullscreen-btn")
+      )
+        return;
+
+      // Ignore if in fullscreen mode
+      if (rootContainer.classList.contains("fullscreen")) return;
+
+      const willCollapse = !rootContainer.classList.contains("collapsed");
+      rootContainer.classList.toggle("collapsed", willCollapse);
+      try {
+        localStorage.setItem(MINIMIZED_KEY, willCollapse ? "1" : "0");
+      } catch {}
+
+      if (!willCollapse) {
+        setTimeout(() => {
+          messagesArea.scrollTop = messagesArea.scrollHeight;
+        }, 50);
+      }
     });
-  </script> </header> <!-- Contenu principal --> <main>  <section class="chat-section"> <h2 class="text-title">Soon</h2> </section>  </main> <!-- components/Footer.astro --><footer>
+
+    // --- toggle button (même logique que clic sur la barre)
+    toggleBtn.addEventListener("click", (e) => {
+      e.stopPropagation(); // Prevent header click event
+
+      // Ignore if in fullscreen mode
+      if (rootContainer.classList.contains("fullscreen")) return;
+
+      const willCollapse = !rootContainer.classList.contains("collapsed");
+      rootContainer.classList.toggle("collapsed", willCollapse);
+      try {
+        localStorage.setItem(MINIMIZED_KEY, willCollapse ? "1" : "0");
+      } catch {}
+
+      if (!willCollapse) {
+        setTimeout(() => {
+          messagesArea.scrollTop = messagesArea.scrollHeight;
+        }, 50);
+      }
+    });
+
+    // --- fullscreen toggle
+    fullscreenBtn.addEventListener("click", (e) => {
+      e.stopPropagation(); // Prevent header click event
+      rootContainer.classList.toggle("fullscreen");
+
+      // If entering fullscreen, make sure it's not collapsed
+      if (rootContainer.classList.contains("fullscreen")) {
+        rootContainer.classList.remove("collapsed");
+      }
+
+      setTimeout(() => {
+        messagesArea.scrollTop = messagesArea.scrollHeight;
+      }, 50);
+    });
+
+    // ==== helpers ====
+    const loadHistory = () => {
+      try {
+        return JSON.parse(localStorage.getItem(HISTORY_KEY) || "[]");
+      } catch {
+        return [];
+      }
+    };
+    const saveHistory = () => {
+      localStorage.setItem(HISTORY_KEY, JSON.stringify(conversationHistory));
+    };
+
+    const createMessageBubble = (content, isUser = false, typing = false) => {
+      const b = document.createElement("div");
+      b.className = `message-bubble ${isUser ? "user-message" : "bot-message"}`;
+      if (typing) b.classList.add("typing");
+      b.textContent = content;
+      return b;
+    };
+    const addMessage = (content, isUser = false) => {
+      const b = createMessageBubble(content, isUser);
+      messagesArea.appendChild(b);
+      messagesArea.scrollTop = messagesArea.scrollHeight;
+      return b;
+    };
+
+    // ==== restoration / welcome ====
+    function initializeChat() {
+      conversationHistory = loadHistory();
+      messagesArea.innerHTML = "";
+
+      if (conversationHistory.length > 0) {
+        // Recrée toutes les bulles sauvegardées
+        for (const m of conversationHistory) {
+          const b = createMessageBubble(m.content, m.type === "user");
+          messagesArea.appendChild(b);
+        }
+      } else {
+        // Première ouverture → juste afficher le message d'accueil (non sauvegardé)
+        const welcome = "Comment puis-je vous aider ?";
+        const b = createMessageBubble(welcome, false);
+        messagesArea.appendChild(b);
+      }
+
+      setTimeout(() => {
+        messagesArea.scrollTop = messagesArea.scrollHeight;
+      }, 50);
+      input.disabled = false;
+      sendBtn.disabled = false;
+      isTyping = false;
+    }
+
+    // ==== envoi ====
+    async function sendMessage() {
+      const prompt = input.value.trim();
+      if (!prompt || isTyping) return;
+
+      addMessage(prompt, true);
+      conversationHistory.push({
+        type: "user",
+        content: prompt,
+        ts: Date.now(),
+      });
+      saveHistory();
+
+      input.value = "";
+      sendBtn.disabled = true;
+      isTyping = true;
+      const typing = addMessage("Laisse-moi réfléchir...", false, true);
+
+      try {
+        const res = await fetch("https://api.leopalich.com/ask", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Accept: "text/plain" },
+          body: JSON.stringify({ prompt }),
+        });
+        typing.remove();
+        const b = addMessage("", false);
+        let text = "";
+
+        if (!res.body || !res.body.getReader) {
+          text = await res.text();
+          b.textContent = text || "Réponse vide reçue du serveur.";
+        } else {
+          const reader = res.body.getReader();
+          const dec = new TextDecoder("utf-8");
+          while (true) {
+            const { value, done } = await reader.read();
+            if (done) break;
+            text += dec.decode(value, { stream: true });
+            b.textContent = text;
+            messagesArea.scrollTop = messagesArea.scrollHeight;
+          }
+        }
+        conversationHistory.push({
+          type: "bot",
+          content: text,
+          ts: Date.now(),
+        });
+        saveHistory();
+      } catch (e) {
+        typing.remove();
+        const msg = `Désolé, erreur: ${e.message}`;
+        addMessage(msg, false);
+        conversationHistory.push({ type: "bot", content: msg, ts: Date.now() });
+        saveHistory();
+      } finally {
+        isTyping = false;
+        sendBtn.disabled = false;
+      }
+    }
+
+    sendBtn.addEventListener("click", sendMessage);
+    input.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" && !isTyping) sendMessage();
+    });
+
+    initializeChat();
+
+    // --- Fonction globale pour appeler le chatbot depuis l'extérieur ---
+    window.askChatbot = (promptText) => {
+      // 1. Ouvrir le chat s'il est fermé (collapsed)
+      if (rootContainer.classList.contains("collapsed")) {
+        rootContainer.classList.remove("collapsed");
+        try {
+          localStorage.setItem(MINIMIZED_KEY, "0");
+        } catch {}
+      }
+
+      // 2. Mettre en plein écran (fullscreen)
+      if (!rootContainer.classList.contains("fullscreen")) {
+        rootContainer.classList.add("fullscreen");
+      }
+
+      // 3. Remplir l'input et envoyer
+      input.value = promptText;
+      input.focus();
+
+      // Petit délai pour laisser le temps à l'UI de s'ouvrir
+      setTimeout(() => {
+        sendMessage();
+      }, 300);
+    };
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initChat);
+  } else {
+    initChat();
+  }
+</script> <!-- components/Footer.astro --><footer>
 © 2025 Léo Palich
 </footer> <!-- Router interne (SPA-like) --> <script type="module">
-        const main = document.querySelector('main');
-        const linkSelector = '[data-nav]';
+        const main = document.querySelector("main");
+        const linkSelector = "[data-nav]";
 
         async function navigate(url, push = true) {
-          main.classList.add('is-loading');
+          main.classList.add("is-loading");
 
-          const html = await fetch(url).then(r => r.text());
-          const doc  = new DOMParser().parseFromString(html, 'text/html');
+          const html = await fetch(url).then((r) => r.text());
+          const doc = new DOMParser().parseFromString(html, "text/html");
 
           /* Remplace le contenu du <main> */
-          main.innerHTML = doc.querySelector('main').innerHTML;
+          main.innerHTML = doc.querySelector("main").innerHTML;
           setTimeout(() => {
-            if (window.initChat && typeof window.initChat === 'function') {
+            if (window.initChat && typeof window.initChat === "function") {
               window.initChat();
             }
+            // Ré-initialise le formulaire de contact si présent
+            initContactForm();
           }, 100);
 
           /* <title> + meta description */
           document.title = doc.title;
-          const newDesc = doc.querySelector('meta[name="description"]')?.content;
+          const newDesc = doc.querySelector(
+            'meta[name="description"]',
+          )?.content;
           if (newDesc) {
             let cur = document.querySelector('meta[name="description"]');
             if (!cur) {
-              cur = document.createElement('meta');
-              cur.name = 'description';
+              cur = document.createElement("meta");
+              cur.name = "description";
               document.head.appendChild(cur);
             }
             cur.content = newDesc;
           }
 
           /* Lien actif */
-          document.querySelectorAll(linkSelector).forEach(a =>
-            a.classList.toggle('is-active', a.href === url),
-          );
+          document
+            .querySelectorAll(linkSelector)
+            .forEach((a) => a.classList.toggle("is-active", a.href === url));
 
-          if (push) history.pushState(null, '', url);
-          main.classList.remove('is-loading');
+          if (push) history.pushState(null, "", url);
+          main.classList.remove("is-loading");
           window.scrollTo({ top: 0 });
         }
 
         /* Interception des clics */
-        document.addEventListener('click', (e) => {
+        document.addEventListener("click", (e) => {
           const a = e.target.closest(linkSelector);
           if (!a || a.origin !== location.origin) return;
           e.preventDefault();
@@ -76,5 +330,63 @@
         });
 
         /* Bouton précédent / suivant */
-        window.addEventListener('popstate', () => navigate(location.href, false));
-      </script> </div> </body> <div class="glow-wrapper" id="bg" data-astro-cid-276go4px> <div class="gradient layer-1" data-astro-cid-276go4px></div> <div class="gradient layer-2" data-astro-cid-276go4px></div> <div class="gradient layer-3" data-astro-cid-276go4px></div> <div class="fog-texture" data-astro-cid-276go4px></div> <div class="noise" data-astro-cid-276go4px></div> <div class="grain" data-astro-cid-276go4px></div> <div class="dark-overlay" data-astro-cid-276go4px></div> <div class="vignette" data-astro-cid-276go4px></div> </div> <script type="module">const c=document.querySelectorAll(".gradient"),r=[40,65,90];document.addEventListener("pointermove",t=>{const o=t.clientX/window.innerWidth-.5,i=t.clientY/window.innerHeight-.5;c.forEach((e,n)=>{e instanceof HTMLElement&&e.style.setProperty("--parallax",`translate(${o*r[n]}px, ${i*r[n]}px)`)})});</script> </html>
+        window.addEventListener("popstate", () =>
+          navigate(location.href, false),
+        );
+
+        /* --- Logique spécifique Page Contact --- */
+        function initContactForm() {
+          const emailBtn = document.getElementById("email-btn");
+          const backBtn = document.getElementById("back-btn");
+          const contactButtons = document.getElementById("contact-buttons");
+          const contactForm = document.getElementById("contact-form");
+
+          /* Logique compteur de caractères */
+          const messageInput = document.getElementById("message");
+          const charCount = document.getElementById("char-count");
+          const submitBtn = document.querySelector(".submit-btn");
+
+          // Gestion des boutons d'affichage
+          if (emailBtn && contactButtons && contactForm && backBtn) {
+            emailBtn.onclick = () => {
+              contactButtons.style.display = "none";
+              contactForm.style.display = "block";
+            };
+
+            backBtn.onclick = () => {
+              contactForm.style.display = "none";
+              contactButtons.style.display = "flex";
+            };
+          }
+
+          // Gestion du compteur
+          if (messageInput && charCount) {
+            const minLength = 30;
+
+            // Mise à jour de la fonction de validation
+            const updateCount = () => {
+              const currentLength = messageInput.value.length;
+              charCount.textContent = `${currentLength}/${minLength}`;
+
+              if (currentLength >= minLength) {
+                charCount.classList.add("valid");
+                if (submitBtn) submitBtn.disabled = false;
+                if (submitBtn) submitBtn.style.opacity = "1";
+                if (submitBtn) submitBtn.style.cursor = "pointer";
+              } else {
+                charCount.classList.remove("valid");
+                if (submitBtn) submitBtn.disabled = true;
+                if (submitBtn) submitBtn.style.opacity = "0.5";
+                if (submitBtn) submitBtn.style.cursor = "not-allowed";
+              }
+            };
+
+            messageInput.oninput = updateCount;
+            // Init au chargement
+            updateCount();
+          }
+        }
+
+        // Initialisation au chargement initial
+        initContactForm();
+      </script> </div> </body> <div class="glow-wrapper" id="bg"> <div class="vignette"></div> <div class="dark-overlay"></div> <div class="hex-grid"></div> <div class="fog-texture"></div> <div class="noise"></div> <div class="grain"></div> <div class="spotlight"></div> </div> <script type="module">const e=document.getElementById("bg");e&&(e.style.setProperty("--mouse-x","50%"),e.style.setProperty("--mouse-y","50%"),document.addEventListener("pointermove",t=>{const n=t.clientX/window.innerWidth*100,o=t.clientY/window.innerHeight*100;e.style.setProperty("--mouse-x",`${n}%`),e.style.setProperty("--mouse-y",`${o}%`)}));</script> </html>
