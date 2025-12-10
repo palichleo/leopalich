@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="fr"> <head><meta charset="utf-8"><title>Contact - Léo Palich</title><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta name="description" content="Portfolio de Léo Palich, étudiant en sciences cognitives, parcours Intelligence Artificielle Centrée Humain"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="canonical" href="https://leopalich.com/"><link rel="stylesheet" href="/_astro/contact.Dai3gNQY.css"></head> <body> <div class="page-wrapper"> <!-- Barre horizontale --> <!-- Barre horizontale collée en haut --><header class="topbar"> <nav class="topbar-nav"> <!-- Nom / logo --> <h1 class="site-name"> <span class="first">Léo</span> <span class="last">Palich</span> </h1> <!-- Bouton burger (mobile) --> <button id="menu-toggle" class="burger" aria-label="Menu" aria-expanded="false"> <span class="bar"></span><span class="bar"></span><span class="bar"></span> </button> <!-- Liens de navigation --> <ul class="menu-list" id="menu-list"> <li> <a href="/" data-nav class="menu-link "> Accueil </a> </li><li> <a href="/projets" data-nav class="menu-link "> Projets </a> </li><li> <a href="/contact" data-nav class="menu-link "> Contact </a> </li> </ul> </nav> </header> <!-- Backdrop blur overlay for mobile menu (outside header) --> <div class="menu-backdrop" id="menu-backdrop"></div> <!-- mobile --> <script>
+<!DOCTYPE html><html lang="fr"> <head><meta charset="utf-8"><title>Contact - Léo Palich</title><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta name="description" content="Portfolio de Léo Palich, étudiant en sciences cognitives, parcours Intelligence Artificielle Centrée Humain"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="canonical" href="https://leopalich.com/"><link rel="stylesheet" href="/_astro/contact.BKmrL1nR.css"></head> <body> <div class="page-wrapper"> <!-- Barre horizontale --> <!-- Barre horizontale collée en haut --><header class="topbar"> <nav class="topbar-nav"> <!-- Nom / logo --> <h1 class="site-name"> <span class="first">Léo</span> <span class="last">Palich</span> </h1> <!-- Bouton burger (mobile) --> <button id="menu-toggle" class="burger" aria-label="Menu" aria-expanded="false"> <span class="bar"></span><span class="bar"></span><span class="bar"></span> </button> <!-- Liens de navigation --> <ul class="menu-list" id="menu-list"> <li> <a href="/" data-nav class="menu-link "> Accueil </a> </li><li> <a href="/projets" data-nav class="menu-link "> Projets </a> </li><li> <a href="/contact" data-nav class="menu-link "> Contact </a> </li> </ul> </nav> </header> <!-- Backdrop blur overlay for mobile menu (outside header) --> <div class="menu-backdrop" id="menu-backdrop"></div> <!-- mobile --> <script>
   const btn = document.getElementById("menu-toggle");
   const list = document.getElementById("menu-list");
   const backdrop = document.getElementById("menu-backdrop");
@@ -49,7 +49,10 @@ Retour
 
     try {
       const wasCollapsed = localStorage.getItem(MINIMIZED_KEY) === "1";
-      if (wasCollapsed) rootContainer.classList.add("collapsed");
+      // Sur mobile, garder le chat fermé par défaut au premier chargement
+      const isMobile = window.innerWidth <= 768;
+      const shouldCollapse = wasCollapsed || (isMobile && localStorage.getItem(MINIMIZED_KEY) === null);
+      if (shouldCollapse) rootContainer.classList.add("collapsed");
     } catch {
       /* no-op */
     }
