@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 700" role="img" aria-labelledby="title description">
   <title id="title">Chemin d'une requête RAG</title>
-  <desc id="description">Une question traverse l'API, l'embedding, la recherche ChromaDB, les chunks, la construction du prompt et Ollama avant le retour progressif de la réponse.</desc>
+  <desc id="description">Une question traverse l'API du site, l'embedding, la recherche ChromaDB, les chunks, la construction du prompt et un modèle via une API externe avant le retour progressif de la réponse.</desc>
   <style>
     .text { font-family: system-ui, sans-serif; }
     .number { fill: #1d5fa8; font-size: 16px; font-weight: 700; }
@@ -92,7 +92,7 @@
   <g class="text" transform="translate(1190 90)">
     <rect class="stage" width="170" height="270" rx="10"/>
     <text class="number" x="18" y="30">07</text>
-    <text class="label" x="85" y="72" text-anchor="middle"><tspan x="85">LLM</tspan><tspan x="85" dy="28">via Ollama</tspan></text>
+    <text class="label" x="85" y="72" text-anchor="middle"><tspan x="85">LLM</tspan><tspan x="85" dy="28">API externe</tspan></text>
     <g class="icon">
       <circle cx="85" cy="174" r="44"/>
       <path d="M64 174h42M85 153v42M70 159l30 30M100 159l-30 30"/>
