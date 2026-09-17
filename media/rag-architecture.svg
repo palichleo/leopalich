@@ -21,30 +21,30 @@
     </marker>
   </defs>
   <g class="text" transform="translate(20 90)">
-    <rect class="stage" width="170" height="270" rx="10"/>
+    <rect class="stage" width="170" height="270" rx="2"/>
     <text class="number" x="18" y="30">01</text>
     <text class="label" x="85" y="72" text-anchor="middle"><tspan x="85">Question</tspan><tspan x="85" dy="28">utilisateur</tspan></text>
     <g class="icon">
-      <rect x="38" y="137" width="94" height="62" rx="10"/>
+      <rect x="38" y="137" width="94" height="62" rx="2"/>
       <path d="M62 171h46M48 216h74"/>
       <path d="M116 198l16 17v-24"/>
     </g>
   </g>
 
   <g class="text" transform="translate(215 90)">
-    <rect class="stage" width="170" height="270" rx="10"/>
+    <rect class="stage" width="170" height="270" rx="2"/>
     <text class="number" x="18" y="30">02</text>
     <text class="label" x="85" y="86" text-anchor="middle">API du site</text>
     <g class="icon">
-      <rect x="42" y="135" width="86" height="24" rx="5"/>
-      <rect x="42" y="174" width="86" height="24" rx="5"/>
+      <rect x="42" y="135" width="86" height="24" rx="2"/>
+      <rect x="42" y="174" width="86" height="24" rx="2"/>
       <circle cx="112" cy="147" r="3" fill="#1d5fa8" stroke="none"/>
       <circle cx="112" cy="186" r="3" fill="#1d5fa8" stroke="none"/>
     </g>
   </g>
 
   <g class="text" transform="translate(410 90)">
-    <rect class="stage" width="170" height="270" rx="10"/>
+    <rect class="stage" width="170" height="270" rx="2"/>
     <text class="number" x="18" y="30">03</text>
     <text class="label" x="85" y="86" text-anchor="middle">Embedding</text>
     <g class="icon">
@@ -56,7 +56,7 @@
   </g>
 
   <g class="text" transform="translate(605 90)">
-    <rect class="stage" width="170" height="270" rx="10"/>
+    <rect class="stage" width="170" height="270" rx="2"/>
     <text class="number" x="18" y="30">04</text>
     <text class="label" x="85" y="86" text-anchor="middle">ChromaDB</text>
     <g class="icon">
@@ -67,30 +67,30 @@
   </g>
 
   <g class="text" transform="translate(800 90)">
-    <rect class="stage" width="170" height="270" rx="10"/>
+    <rect class="stage" width="170" height="270" rx="2"/>
     <text class="number" x="18" y="30">05</text>
     <text class="label" x="85" y="86" text-anchor="middle">Chunks</text>
     <g class="icon">
-      <rect x="38" y="132" width="94" height="31" rx="5"/>
-      <rect x="38" y="174" width="94" height="31" rx="5"/>
-      <rect x="38" y="216" width="70" height="20" rx="5" opacity=".65"/>
+      <rect x="38" y="132" width="94" height="31" rx="2"/>
+      <rect x="38" y="174" width="94" height="31" rx="2"/>
+      <rect x="38" y="216" width="70" height="20" rx="2" opacity=".65"/>
       <path d="M54 148h56M54 190h44"/>
     </g>
   </g>
 
   <g class="text" transform="translate(995 90)">
-    <rect class="stage" width="170" height="270" rx="10"/>
+    <rect class="stage" width="170" height="270" rx="2"/>
     <text class="number" x="18" y="30">06</text>
     <text class="label" x="85" y="86" text-anchor="middle">Prompt</text>
     <g class="icon">
-      <rect x="37" y="130" width="96" height="106" rx="7"/>
+      <rect x="37" y="130" width="96" height="106" rx="2"/>
       <path d="M54 153h61M54 176h46M54 199h61M54 222h34"/>
       <path d="M50 187h70" stroke="#1d5fa8"/>
     </g>
   </g>
 
   <g class="text" transform="translate(1190 90)">
-    <rect class="stage" width="170" height="270" rx="10"/>
+    <rect class="stage" width="170" height="270" rx="2"/>
     <text class="number" x="18" y="30">07</text>
     <text class="label" x="85" y="72" text-anchor="middle"><tspan x="85">LLM</tspan><tspan x="85" dy="28">API externe</tspan></text>
     <g class="icon">
@@ -105,7 +105,7 @@
   </g>
 
   <g class="text">
-    <rect class="stage" x="420" y="490" width="560" height="130" rx="12"/>
+    <rect class="stage" x="420" y="490" width="560" height="130" rx="2"/>
     <text class="number" x="446" y="526">08</text>
     <text class="label" x="486" y="526">Réponse générée</text>
     <g class="icon"><path d="M446 553h440M446 576h376M446 599h298"/></g>

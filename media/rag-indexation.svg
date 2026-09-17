@@ -32,9 +32,9 @@
   </g>
 
   <g fill="#f3f0e8" stroke="#9a958b" stroke-width="1.5">
-    <rect x="330" y="143" width="176" height="36" rx="5"/>
-    <rect x="330" y="196" width="176" height="36" rx="5"/>
-    <rect x="330" y="249" width="176" height="36" rx="5"/>
+    <rect x="330" y="143" width="176" height="36" rx="2"/>
+    <rect x="330" y="196" width="176" height="36" rx="2"/>
+    <rect x="330" y="249" width="176" height="36" rx="2"/>
   </g>
   <g stroke="#777f87" stroke-width="4" stroke-linecap="round">
     <path d="M352 161h105M352 214h132M352 267h86"/>
