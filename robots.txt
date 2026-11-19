@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://leopalich.com/sitemap-index.xml
